@@ -2,7 +2,7 @@
 
 Analyse de la cohérence entre les arbres plantés et les conditions environnementales locales
 ![photo d'arbre]()
-
+----
 ## Getting started
 
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.
