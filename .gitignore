@@ -1,3 +1,5 @@
 # Ignore visual studio code and IntelliJIdea configs
 .vscode
 .idea
+
+test.ipynb
