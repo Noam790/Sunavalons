@@ -1,13 +1,13 @@
-"""
-This module contains functions for data extraction and analysis.
-"""
+from utils import find_closest_trees, extract_data_for_city
 
 def main():
-    """
-    Launches the main program to extract data and perform analysis.
-    
-    This function will initiate the data extraction process, run any 
-    necessary transformations, and then perform the required analysis 
-    on the data to draw conclusions or generate results.
-    """
+    city = str(input("Dans quelle ville souhaitez vous ajouter des arbres ? : "))
+    city_data = extract_data_for_city(city) #climat de la ville
+    best_trees = find_closest_trees(city_data,20) #meilleurs arbres pour ce climat
+
+    print("arbres les mieux adaptés aux conditions climatiques de votre ville : ")
+    for tree, dist in best_trees:
+        print(f"arbre : {tree}, distance avec caractéristiques de la ville : {dist}")
     return
+
+main()

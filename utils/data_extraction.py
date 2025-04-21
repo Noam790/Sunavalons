@@ -126,7 +126,6 @@ def extract_data_for_city(ville):
 
     # Exposition
     radiation = get_solar_radiation(lat, lon)
-    print(radiation)
     if radiation < 2000:
         indicators['exposition'] = 1
     elif radiation < 3000:
@@ -139,5 +138,3 @@ def extract_data_for_city(ville):
         indicators['exposition'] = 5
 
     return indicators
-
-print(extract_data_for_city("Paris"))
