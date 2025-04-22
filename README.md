@@ -19,22 +19,22 @@
 - Ce projet va pouvoir permettre d'analyser la cohérence entre les arbres plantés et les conditions environnementales locales. Pour pouvoir suggérer des espèces plus adaptées aux différents milieux urbains français.
 
   ### Dépendances
-    
+
 
   ### API/Données
 
 # Pour commencer
   - ## Compatibilité
-    
+
 
   - ## Installation
-    
+
 
   - ## Installation rapide
-    
+
 
   - ## Configuration
-    
+
 
 # Feuille de Route
 - [ ] Récupérer tous les jeux de données nécessaires

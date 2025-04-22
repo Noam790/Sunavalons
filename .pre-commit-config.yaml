@@ -1,0 +1,33 @@
+repos:
+  - repo: https://github.com/psf/black
+    rev: 24.10.0  # Formattage du code pour une version identique sur chaque machine
+    hooks:
+      - id: black
+        name: black
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.2.0  # Check la qualité du code -> (complexité, nommage, imports)
+    hooks:
+      - id: flake8
+        name: flake8
+        args: ['--exclude=__init__.py']
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0 # formatte le code (ligne vide fin de fichier, espaces inutiles)
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-merge-conflict # evite de push des conflits de fusion
+
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: v5.10.1 # trie les imports
+    hooks:
+      - id: isort
+
+  - repo: local
+    hooks: # formatte le php avec un php -l
+    - id: php-lint
+      name: PHP Lint
+      entry: php -l
+      language: system
+      types: [php]

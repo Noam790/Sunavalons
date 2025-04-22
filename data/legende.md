@@ -47,4 +47,3 @@
 | 3 | 3–5 h | Mi-ombre |
 | 4 | 5–7 h | Soleil |
 | 5 | 7–12 h | Plein soleil |
-
