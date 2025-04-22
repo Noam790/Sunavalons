@@ -1,0 +1,4 @@
+[flake8]
+max-line-length = 88
+
+# Sinon entre en conflit avec black car lui veut 79 char max et black 88
