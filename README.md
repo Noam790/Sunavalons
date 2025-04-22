@@ -28,7 +28,8 @@
 
 
   - ## Installation
-
+    - Pour lancer le projet, utilisez la commande ./start_project.sh
+    - Allez ensuite à cette url : https://localhost:8080/
 
   - ## Installation rapide
 

@@ -4,5 +4,4 @@ from utils import extract_data or from utils import analyze_data ...
 """
 
 from .data_analysis import find_closest_trees
-from .data_displaying import get_results
 from .data_extraction import extract_data_for_city

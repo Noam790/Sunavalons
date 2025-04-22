@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 
-from python.utils import get_results
+from python.utils.data_displaying import get_results
 
 app = Flask(__name__)
 
