@@ -3,19 +3,31 @@ from datetime import datetime
 import requests
 
 COMMON_HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "User-Agent":
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) "
     "Chrome/122.0.0.0 Safari/537.36"
 }
 
 
 def get_coordinates(ville):
-    """Utilise Nominatim pour obtenir les coordonnées GPS d'une ville."""
-    url = f"https://nominatim.openstreetmap.org/search?q={ville}&format=json&limit=1"
-    response = requests.get(url, headers=COMMON_HEADERS).json()
-    if response:
-        return float(response[0]["lat"]), float(response[0]["lon"])
-    return None, None
+    url = (f"https://nominatim.openstreetmap.org/search?"
+           f"q={ville}&format=json&limit=1&email=email@example.com")
+
+    try:
+        response = requests.get(url, headers=COMMON_HEADERS)
+        response.raise_for_status()  # Check les erreurs
+        data = response.json()
+        if data:
+            lat = data[0]["lat"]
+            lon = data[0]["lon"]
+            return lat, lon
+        else:
+            print(f"Aucune donnée trouvée pour {ville}")
+            return None
+    except requests.exceptions.RequestException as e:
+        print(f"Erreur lors de la requête pour {ville}: {e}")
+        return None
 
 
 def get_precipitation(lat, lon):
@@ -24,18 +36,15 @@ def get_precipitation(lat, lon):
     url = (
         f"https://archive-api.open-meteo.com/v1/archive?"
         f"latitude={lat}&longitude={lon}&start_date={year}-01-01&end_date={year}-12-31"
-        f"&daily=precipitation_sum&timezone=Europe%2FParis"
-    )
+        f"&daily=precipitation_sum&timezone=Europe%2FParis")
     response = requests.get(url, headers=COMMON_HEADERS).json()
     return sum(response["daily"]["precipitation_sum"])
 
 
 def get_soil_ph(lat, lon):
     """pH du sol via SoilGrids."""
-    url = (
-        f"https://rest.isric.org/soilgrids/v2.0/properties/query"
-        f"?lon={lon}&lat={lat}&property=phh2o"
-    )
+    url = (f"https://rest.isric.org/soilgrids/v2.0/properties/query"
+           f"?lon={lon}&lat={lat}&property=phh2o")
     try:
         r = requests.get(url, headers=COMMON_HEADERS).json()
         depths = r["properties"]["layers"][0]["depths"]
@@ -55,8 +64,7 @@ def get_min_temperature(lat, lon):
     url = (
         f"https://archive-api.open-meteo.com/v1/archive?"
         f"latitude={lat}&longitude={lon}&start_date={year}-01-01&end_date={year}-12-31"
-        f"&daily=temperature_2m_min&timezone=Europe%2FParis"
-    )
+        f"&daily=temperature_2m_min&timezone=Europe%2FParis")
     response = requests.get(url, headers=COMMON_HEADERS).json()
     return min(response["daily"]["temperature_2m_min"])
 
@@ -64,13 +72,11 @@ def get_min_temperature(lat, lon):
 def get_solar_radiation(lat, lon):
     """Rayonnement solaire direct moyen en juin via Open-Meteo"""
     year = datetime.now().year - 1
-    url = (
-        f"https://archive-api.open-meteo.com/v1/archive?"
-        f"latitude={lat}&longitude={lon}"
-        f"&start_date={year}-06-01&end_date={year}-06-30"
-        f"&daily=shortwave_radiation_sum"
-        f"&timezone=Europe%2FParis"
-    )
+    url = (f"https://archive-api.open-meteo.com/v1/archive?"
+           f"latitude={lat}&longitude={lon}"
+           f"&start_date={year}-06-01&end_date={year}-06-30"
+           f"&daily=shortwave_radiation_sum"
+           f"&timezone=Europe%2FParis")
     response = requests.get(url, headers=COMMON_HEADERS).json()
     radiation = response["daily"]["shortwave_radiation_sum"]
 

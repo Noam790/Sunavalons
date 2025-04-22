@@ -1,9 +1,8 @@
 repos:
-  - repo: https://github.com/psf/black
-    rev: 24.10.0  # Formattage du code pour une version identique sur chaque machine
+  - repo: https://github.com/google/yapf
+    rev: v0.40.2 # formatte le code
     hooks:
-      - id: black
-        name: black
+      - id: yapf
 
   - repo: https://github.com/PyCQA/flake8
     rev: 7.2.0  # Check la qualité du code -> (complexité, nommage, imports)
@@ -31,3 +30,12 @@ repos:
       entry: php -l
       language: system
       types: [php]
+
+  - repo: local # faire un git add automatiquement
+    hooks:
+      - id: git-add
+        name: git add all modified files
+        entry: git add .
+        language: system
+        stages: [pre-commit]
+        types: [python, php, yaml, json, html]
