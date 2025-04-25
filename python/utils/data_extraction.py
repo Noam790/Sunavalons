@@ -37,6 +37,7 @@ def get_precipitation(lat, lon):
         f"https://archive-api.open-meteo.com/v1/archive?"
         f"latitude={lat}&longitude={lon}&start_date={year}-01-01&end_date={year}-12-31"
         f"&daily=precipitation_sum&timezone=Europe%2FParis")
+
     response = requests.get(url, headers=COMMON_HEADERS).json()
     return sum(response["daily"]["precipitation_sum"])
 
@@ -45,6 +46,7 @@ def get_soil_ph(lat, lon):
     """pH du sol via SoilGrids."""
     url = (f"https://rest.isric.org/soilgrids/v2.0/properties/query"
            f"?lon={lon}&lat={lat}&property=phh2o")
+
     try:
         r = requests.get(url, headers=COMMON_HEADERS).json()
         depths = r["properties"]["layers"][0]["depths"]
@@ -65,6 +67,7 @@ def get_min_temperature(lat, lon):
         f"https://archive-api.open-meteo.com/v1/archive?"
         f"latitude={lat}&longitude={lon}&start_date={year}-01-01&end_date={year}-12-31"
         f"&daily=temperature_2m_min&timezone=Europe%2FParis")
+
     response = requests.get(url, headers=COMMON_HEADERS).json()
     return min(response["daily"]["temperature_2m_min"])
 
@@ -77,13 +80,15 @@ def get_solar_radiation(lat, lon):
            f"&start_date={year}-06-01&end_date={year}-06-30"
            f"&daily=shortwave_radiation_sum"
            f"&timezone=Europe%2FParis")
+
     response = requests.get(url, headers=COMMON_HEADERS).json()
     radiation = response["daily"]["shortwave_radiation_sum"]
 
     # Conversion de MJ/m² en Wh/m²
     radiation_wh_m2 = [r * 277.78 for r in radiation]
 
-    return sum(radiation_wh_m2) / len(radiation_wh_m2)
+    return sum(radiation_wh_m2) / len(
+        radiation_wh_m2)  # Moyenne chaleur en juin
 
 
 def extract_data_for_city(ville):

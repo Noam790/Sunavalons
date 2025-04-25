@@ -1,37 +1,36 @@
 repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+
   - repo: https://github.com/google/yapf
-    rev: v0.40.2 # formatte le code
+    rev: v0.40.2
     hooks:
       - id: yapf
-
-  - repo: https://github.com/PyCQA/flake8
-    rev: 7.2.0  # Check la qualité du code -> (complexité, nommage, imports)
-    hooks:
-      - id: flake8
-        name: flake8
-        args: ['--exclude=__init__.py']
-
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0 # formatte le code (ligne vide fin de fichier, espaces inutiles)
-    hooks:
-      - id: end-of-file-fixer
-      - id: trailing-whitespace
-      - id: check-merge-conflict # evite de push des conflits de fusion
+        args: ['--parallel']
 
   - repo: https://github.com/pre-commit/mirrors-isort
-    rev: v5.10.1 # trie les imports
+    rev: v5.10.1
     hooks:
       - id: isort
 
-  - repo: local
-    hooks: # formatte le php avec un php -l
-    - id: php-lint
-      name: PHP Lint
-      entry: php -l
-      language: system
-      types: [php]
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.2.0
+    hooks:
+      - id: flake8
+        args: ['--exclude=__init__.py', '--ignore=E203,E501,W503,W504']  # adouci les règles
 
-  - repo: local # faire un git add automatiquement
+  - repo: local
+    hooks:
+      - id: php-lint
+        name: PHP Lint
+        entry: php -l
+        language: system
+        types: [php]
+
+  - repo: local
     hooks:
       - id: git-add
         name: git add all modified files

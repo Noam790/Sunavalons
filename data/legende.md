@@ -40,10 +40,10 @@
 
 ### 🌞 `exposition` (lumière directe reçue par jour)
 **Critère de base : nombre d’heures de lumière directe**
-| Valeur | Heures de lumière directe/jour | Description |
+Valeur | Rayonnement moyen en juin (Wh/m²/jour) | Niveau d’exposition
 |--------|--------------------------------|-------------|
-| 1 | 0–1 h | Ombre complète |
-| 2 | 1–3 h | Ombre légère, lisière |
-| 3 | 3–5 h | Mi-ombre |
-| 4 | 5–7 h | Soleil |
-| 5 | 7–12 h | Plein soleil |
+1 | < 2000 | Ombre ou faible ensoleillement
+2 | 2000 – 2999 | Ombre légère
+3 | 3000 – 3999 | Mi-ombre à soleil partiel
+4 | 4000 – 4999 | Ensoleillé
+5 | ≥ 5000 | Plein soleil
