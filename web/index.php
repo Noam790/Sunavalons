@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Recommandation d'Arbres</title>
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
     <h1>Choisissez une ville et un nombre d'arbres</h1>
@@ -46,11 +47,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <p style="color:red;">Erreur : <?= htmlspecialchars($error) ?></p>
     <?php elseif (is_array($trees)): ?>
         <h2>Arbres recommandés pour <?= htmlspecialchars($_POST["ville"]) ?> :</h2>
-        <ul>
+        <div class="tree-container">
             <?php foreach ($trees as $tree): ?>
-                <li><?= htmlspecialchars($tree) ?></li>
+                <div class="tree-card">
+                    <h3><?= htmlspecialchars($tree) ?></h3>
+                    <img src="assets/trees/<?=$tree ;?>.jpg">
+                </div>
             <?php endforeach; ?>
-        </ul>
+        </div>
     <?php endif; ?>
 </body>
 </html>
