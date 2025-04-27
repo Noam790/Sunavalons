@@ -9,9 +9,13 @@ pre-commit:
     - pre-commit install-hooks
   script:
     - pre-commit run --all-files # formatage de tous les fichiers du projet
+  tags:
+    - lint
 
 php-lint: # verification du php, formatage
   stage: lint
   image: php:8.2-cli
   script:
     - find . -name "*.php" -exec php -l {} \;
+  tags:
+    - lint
