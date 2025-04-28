@@ -28,33 +28,109 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Recommandation d'Arbres</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <h1>Choisissez une ville et un nombre d'arbres</h1>
-
-    <form method="post">
-        <label for="ville">Ville :</label>
-        <input type="text" id="ville" name="ville" required><br><br>
-
-        <label for="nb_arbres">Nombre d'arbres :</label>
-        <input type="number" id="nb_arbres" name="nb_arbres" required><br><br>
-
-        <button type="submit">Soumettre</button>
-    </form>
-
-    <?php if ($error): ?>
-        <p style="color:red;">Erreur : <?= htmlspecialchars($error) ?></p>
-    <?php elseif (is_array($trees)): ?>
-        <h2>Arbres recommandés pour <?= htmlspecialchars($_POST["ville"]) ?> :</h2>
-        <div class="tree-container">
-            <?php foreach ($trees as $tree): ?>
-                <div class="tree-card">
-                    <h3><?= htmlspecialchars($tree) ?></h3>
-                    <img src="assets/trees/<?=$tree ;?>.jpg">
-                </div>
-            <?php endforeach; ?>
+    <header>
+        <div class="container">
+            <h1>Sunavalons</h1>
+            <p>Recommandations intelligentes d'arbres pour un environnement urbain durable</p>
         </div>
-    <?php endif; ?>
+    </header>
+
+    <main class="container">
+        <form method="post" class="search-form">
+            <div class="form-row">
+                <label for="ville">Ville :</label>
+                <input type="text" id="ville" name="ville" required placeholder="Ex: Paris, Lyon, Bordeaux...">
+            </div>
+
+            <div class="form-row">
+                <label for="nb_arbres">Nombre d'arbres :</label>
+                <input type="number" id="nb_arbres" name="nb_arbres" required min="1" max="200" placeholder="Entre 1 et 200">
+            </div>
+
+            <button type="submit">Rechercher</button>
+        </form>
+
+        <?php
+        $trees = null;
+        $error = null;
+
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $ville = urlencode($_POST["ville"]);
+            $nb_arbres = intval($_POST["nb_arbres"]);
+
+            $url = "http://127.0.0.1:5000/api?ville=$ville&nb_arbres=$nb_arbres";
+            $response = file_get_contents($url);
+
+            if ($response !== false) {
+                $data = json_decode($response, true);
+
+                if (isset($data["error"])) {
+                    $error = $data["error"];
+                } else {
+                    $trees = $data;
+                }
+            } else {
+                $error = "Erreur lors de la communication avec le serveur Flask.";
+            }
+        }
+        ?>
+
+        <?php if ($error): ?>
+            <div class="error">
+                <p>Erreur : <?= htmlspecialchars($error) ?></p>
+            </div>
+        <?php elseif (is_array($trees)): ?>
+            <h2>Arbres recommandés pour <?= htmlspecialchars($_POST["ville"]) ?></h2>
+
+            <div class="tree-container">
+                <?php foreach ($trees as $tree): ?>
+                    <div class="tree-card">
+                        <span class="eco-badge">Éco-compatible</span>
+                        <img src="assets/trees/<?= htmlspecialchars($tree) ?>.jpg" alt="<?= htmlspecialchars($tree) ?>" class="tree-image">
+                        <div class="tree-content">
+                            <h3 class="tree-name"><?= htmlspecialchars($tree) ?></h3>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+
+            <div class="eco-tips">
+                <h3>Conseils pour une plantation durable</h3>
+                <p>Planter des arbres en ville offre de nombreux bénéfices écologiques et améliore la qualité de vie des citadins.</p>
+
+                <div class="tips-container">
+                    <div class="tip-card">
+                        <p class="tip-title">Îlots de fraîcheur</p>
+                        <p>Les arbres réduisent l'effet d'îlot de chaleur urbain en créant de l'ombre et en rafraîchissant l'air jusqu'à 8°C.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <p class="tip-title">Qualité de l'air</p>
+                        <p>Un arbre adulte peut absorber jusqu'à 22kg de CO₂ par an et filtrer les particules fines de l'atmosphère.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <p class="tip-title">Biodiversité</p>
+                        <p>Les arbres urbains constituent des habitats et des sources de nourriture pour la faune, favorisant la biodiversité locale.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <p class="tip-title">Visuel</p>
+                        <p>Une ville fleurie et colorée sera toujours plus agréable qu'une ville industrielle</p>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+    </main>
+
+    <footer>
+        <p>Sunavalons © 2025 - Pour un environnement urbain plus adapté</p>
+    </footer>
 </body>
 </html>

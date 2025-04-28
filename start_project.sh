@@ -12,7 +12,7 @@ if [[ "$OS_TYPE" == "Linux" || "$OS_TYPE" == "Darwin" ]]; then
 elif [[ "$OS_TYPE" == "CYGWIN"* || "$OS_TYPE" == "MINGW"* || "$OS_TYPE" == "MSYS"* ]]; then
     # Pour Windows
     echo "Lancement du serveur sur Windows..."
-    start python app.py  # Lancer le serveur Python (/B = arrière plan)
+    start python app.py
     cd web || exit
     php -S localhost:8080
 else
