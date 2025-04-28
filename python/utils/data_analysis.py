@@ -14,7 +14,7 @@ def find_closest_trees(
         city, k=5):  # 5 plus proches arbres selon les conditions d'une ville
     trees_df = pd.read_csv("data\\arbres_conditions.csv")
     trees = trees_df.to_dict(orient="records")
-    distances = [(tree["genre_francais"], euclidean_distance(tree, city))
+    distances = [(tree["genre francais"], euclidean_distance(tree, city))
                  for tree in trees]
     distances.sort(key=lambda x: x[1])
 
