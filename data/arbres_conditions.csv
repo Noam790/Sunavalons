@@ -1,4 +1,4 @@
-genre_francais,eau,sol,climat,exposition
+genre francais,eau,sol,climat,exposition
 Abelia,3,3,4,4
 Abricotier,2,4,2,5
 Acacia,1,2,2,5
@@ -14,20 +14,20 @@ Andromede,4,2,2,3
 Angelique,4,5,3,3
 Araucaria,3,3,4,5
 Arbousier,1,3,5,5
-Arbre_a_caramel,3,4,4,4
-Arbre_a_gutta-percha,3,3,5,4
-Arbre_a_liege_de_l'amour,2,3,4,5
-Arbre_a_miel,3,3,4,5
-Arbre_a_perruque,2,2,4,5
-Arbre_aux_cloches_d'argent,4,4,3,3
-Arbre_aux_mouchoirs,4,4,3,4
-Arbre_aux_pochettes,4,4,3,4
-Arbre_aux_quarante_ecus,3,3,4,5
-Arbre_de_fer,2,3,4,4
-Arbre_de_judee,2,4,4,5
-Arbre_de_soie,2,3,4,5
-Arbre_imperial,3,4,5,5
-Arbre_parasol_de_chine,3,3,4,5
+Arbre a caramel,3,4,4,4
+Arbre a gutta percha,3,3,5,4
+Arbre a liege de l'amour,2,3,4,5
+Arbre a miel,3,3,4,5
+Arbre a perruque,2,2,4,5
+Arbre aux cloches d'argent,4,4,3,3
+Arbre aux mouchoirs,4,4,3,4
+Arbre aux pochettes,4,4,3,4
+Arbre aux quarante ecus,3,3,4,5
+Arbre de fer,2,3,4,4
+Arbre de judee,2,4,4,5
+Arbre de soie,2,3,4,5
+Arbre imperial,3,4,5,5
+Arbre parasol de chine,3,3,4,5
 Argousier,1,1,2,5
 Aronie,3,3,3,4
 Asiminier,4,4,4,4
@@ -50,7 +50,7 @@ Cephalotaxe,3,3,3,3
 Cerisier,3,4,3,5
 Chalef,2,2,3,5
 Charme,3,4,3,4
-Charme-houblon,3,3,3,4
+Charme houblon,3,3,3,4
 Chataignier,3,3,3,5
 Chene,3,4,3,4
 Chevrefeuille,3,3,3,4
@@ -76,18 +76,13 @@ Distylium,3,3,3,4
 Douglas,3,4,3,4
 Eleagnus,2,3,4,4
 Epicea,3,4,3,4
-Epine,2,3,3,4
 Epinette,4,4,2,4
 Erable,3,3,3,4
 Eucalyptus,2,3,5,5
 Euscaphis,3,3,4,4
-Evodia,3,3,4,4
 Faux,3,3,3,3
-Faux_dattier,2,2,5,5
-Faux_doum,2,2,5,5
-Faux_ebenier,3,3,4,4
-Faux_vernis_du_japon,1,1,5,5
-Faux-cypres,3,3,3,4
+Faux dattier,2,2,5,5
+Faux cypres,3,3,3,4
 Fevier,2,3,4,5
 Figuier,2,3,5,5
 Filaire,3,3,3,4
@@ -95,8 +90,6 @@ Fontanesia,3,3,3,4
 Fremontia,2,2,5,5
 Frene,4,4,3,4
 Fusain,3,3,3,4
-Fustet,2,3,4,5
-Gaignier,3,3,3,4
 Gainier,3,3,3,4
 Garrya,2,3,4,4
 Genet,2,2,4,5
@@ -114,9 +107,7 @@ Jujubier,2,3,5,5
 Kaki,2,3,5,5
 Kalopanax,3,3,4,4
 Katsura,1,3,3,3
-Laburnum,2,3,3,4
 Laurier,2,3,3,4
-Laurier-cerise,2,3,3,4
 Libocedre,3,4,3,4
 Lilas,2,3,3,4
 Maackie,2,3,3,4
@@ -159,7 +150,6 @@ Photinia,4,3,4,5
 Pin,2,3,4,5
 Pistachier,2,3,5,5
 Pittosporum,3,3,3,4
-Plaqueminier,3,4,4,5
 Platane,3,3,4,5
 Platycarya,3,3,3,4
 Poirier,3,4,4,5
