@@ -2,6 +2,11 @@
 
 # Utilisation : ./commit.sh "message"
 
+if [ -z "$1" ]; then
+    echo "Un seul argument requis, entrez un message de commit"
+    exit 1
+fi
+
 echo "🔍 Exécution des vérifications pre-commit..."
 pre-commit run --all-files
 
