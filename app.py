@@ -1,13 +1,17 @@
 from flask import Flask, jsonify, request
 
+from python.utils.data_analysis import load_trees_data
 from python.utils.data_displaying import get_results
 
 app = Flask(__name__)
 
+# Charger les arbres pour optimiser les requêtes
+load_trees_data()
 
 @app.route("/api")
+
 def api_get_trees():
-    city = request.args.get("ville")
+    city = request.args.get("ville") # Paramètres du formulaire
     nb_trees = request.args.get("nb_arbres", type=int)
 
     if not city or not nb_trees:
@@ -21,4 +25,4 @@ def api_get_trees():
     return jsonify(trees)
 
 
-app.run(debug=True)
+app.run(debug=False) # Lancer le serveur

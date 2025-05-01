@@ -1,3 +1,4 @@
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 
 import requests
@@ -77,7 +78,7 @@ def get_solar_radiation(lat, lon):
     year = datetime.now().year - 1
     url = (f"https://archive-api.open-meteo.com/v1/archive?"
            f"latitude={lat}&longitude={lon}"
-           f"&start_date={year}-06-01&end_date={year}-06-30"
+           f"&start_date={year}-01-01&end_date={year}-12-31"
            f"&daily=shortwave_radiation_sum"
            f"&timezone=Europe%2FParis")
 
@@ -94,13 +95,23 @@ def get_solar_radiation(lat, lon):
 def extract_data_for_city(ville):
     """fonction main regroupant les indicateurs"""
     lat, lon = get_coordinates(ville)
+
     if lat is None or lon is None:
         return {"error": "Ville introuvable"}
-
     indicators = {}
 
+    with ThreadPoolExecutor(max_workers=4) as executor: #  Paralléliser les appels API
+        thread_precip = executor.submit(get_precipitation, lat, lon)
+        thread_ph = executor.submit(get_soil_ph, lat, lon)
+        thread_tmin = executor.submit(get_min_temperature, lat, lon)
+        thread_radiation = executor.submit(get_solar_radiation, lat, lon)
+
+        precip = thread_precip.result()
+        ph = thread_ph.result()
+        tmin = thread_tmin.result()
+        radiation = thread_radiation.result()
+
     # Eau
-    precip = get_precipitation(lat, lon)
     if precip < 300:
         indicators["eau"] = 1
     elif precip < 500:
@@ -113,7 +124,6 @@ def extract_data_for_city(ville):
         indicators["eau"] = 5
 
     # Sol
-    ph = get_soil_ph(lat, lon)
     if ph is None:
         indicators["sol"] = 3  # Valeur par défaut
     elif ph < 4.0 or ph > 9.5:
@@ -128,7 +138,6 @@ def extract_data_for_city(ville):
         indicators["sol"] = 5
 
     # Climat
-    tmin = get_min_temperature(lat, lon)
     if tmin < -30:
         indicators["climat"] = 1
     elif tmin < -20:
@@ -141,7 +150,6 @@ def extract_data_for_city(ville):
         indicators["climat"] = 5
 
     # Exposition
-    radiation = get_solar_radiation(lat, lon)
     if radiation < 2000:
         indicators["exposition"] = 1
     elif radiation < 3000:
