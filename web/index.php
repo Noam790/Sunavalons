@@ -56,31 +56,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <button type="submit">Rechercher</button>
         </form>
 
-        <?php
-        $trees = null;
-        $error = null;
-
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $ville = urlencode($_POST["ville"]);
-            $nb_arbres = intval($_POST["nb_arbres"]);
-
-            $url = "http://127.0.0.1:5000/api?ville=$ville&nb_arbres=$nb_arbres";
-            $response = file_get_contents($url);
-
-            if ($response !== false) {
-                $data = json_decode($response, true);
-
-                if (isset($data["error"])) {
-                    $error = $data["error"];
-                } else {
-                    $trees = $data;
-                }
-            } else {
-                $error = "Erreur lors de la communication avec le serveur Flask.";
-            }
-        }
-        ?>
-
         <?php if ($error): ?>
             <div class="error">
                 <p>Erreur : <?= htmlspecialchars($error) ?></p>
