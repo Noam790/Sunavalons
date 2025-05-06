@@ -17,7 +17,6 @@ def api_get_trees():
     if not city or not nb_trees:
         return jsonify({"error": "Paramètres manquants"}), 400
 
-
     trees = get_results(city, nb_trees)
 
     if isinstance(trees, str):  # Erreur retournée par get_results

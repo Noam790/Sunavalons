@@ -3,13 +3,14 @@ import math
 import pandas as pd
 
 trees_data = None
-
+all_tree_names = None
 
 def load_trees_data():
-    global trees_data
+    global trees_data, all_tree_names
     if trees_data is None:
         trees_df = pd.read_csv("data\\arbres_conditions.csv")
         trees_data = trees_df.to_dict(orient="records")
+        all_tree_names = [tree["genre francais"] for tree in trees_data]
     return trees_data
 
 
@@ -20,14 +21,12 @@ def euclidean_distance(tree, city_data):
                      (tree["exposition"] - city_data["exposition"])**2)
 
 
-def find_closest_trees(
-        city, k=5):  # 5 plus proches arbres selon les conditions d'une ville
-    if(k >= len(trees_data)):
-        return [tree["genre francais"] for tree in trees_data]
-
+def find_closest_trees(city, k=5): # K plus proches arbres
+    global all_tree_names
+    if k >= len(trees_data):
+        return all_tree_names
     distances = [(tree["genre francais"], euclidean_distance(tree, city))
                  for tree in trees_data]
     distances.sort(key=lambda x: x[1])
 
-    return [tree[0]
-            for tree in distances[:k]]  # Ne renvoyer que les noms des arbres
+    return [tree[0] for tree in distances[:k]]
