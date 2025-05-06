@@ -6,7 +6,7 @@ from python.utils.data_displaying import get_results
 app = Flask(__name__)
 
 # Charger les arbres pour optimiser les requêtes
-load_trees_data()
+tree_set = load_trees_data()
 
 @app.route("/api")
 
@@ -16,6 +16,7 @@ def api_get_trees():
 
     if not city or not nb_trees:
         return jsonify({"error": "Paramètres manquants"}), 400
+
 
     trees = get_results(city, nb_trees)
 
