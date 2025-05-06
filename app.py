@@ -25,5 +25,4 @@ def api_get_trees():
 
     return jsonify(trees)
 
-
-app.run(debug=False) # Lancer le serveur
+app.run()
