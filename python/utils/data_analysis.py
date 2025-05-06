@@ -1,4 +1,5 @@
 import math
+import os
 
 import pandas as pd
 
@@ -8,7 +9,8 @@ all_tree_names = None
 def load_trees_data():
     global trees_data, all_tree_names
     if trees_data is None:
-        trees_df = pd.read_csv("data\\arbres_conditions.csv")
+        csv_path = os.path.join("data", "arbres_conditions.csv")
+        trees_df = pd.read_csv(csv_path)
         trees_data = trees_df.to_dict(orient="records")
         all_tree_names = [tree["genre francais"] for tree in trees_data]
     return trees_data
