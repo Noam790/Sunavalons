@@ -8,14 +8,14 @@ if [ -z "$1" ]; then
 fi
 
 echo "🔍 Exécution des vérifications pre-commit..."
-pre-commit run --all-files --config ./.config/pre-commit/config.yaml
+pre-commit run --all-files
 
 
 echo "➕ Ajout des modifications..."
 git add .
 
 echo "➕ Seconde vérification (tout passe normalement)"
-pre-commit run --all-files --config ./.config/pre-commit/config.yaml
+pre-commit run --all-files
 # pour re corriger une fois tout add (normalement tout passe)
 
 # Étape 3 : Faire le commit
