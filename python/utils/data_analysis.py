@@ -22,6 +22,9 @@ def euclidean_distance(tree, city_data):
 
 def find_closest_trees(
         city, k=5):  # 5 plus proches arbres selon les conditions d'une ville
+    if(k >= len(trees_data)):
+        return [tree["genre francais"] for tree in trees_data]
+
     distances = [(tree["genre francais"], euclidean_distance(tree, city))
                  for tree in trees_data]
     distances.sort(key=lambda x: x[1])

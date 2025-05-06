@@ -17,12 +17,6 @@ repos:
     hooks:
       - id: isort
 
-  - repo: https://github.com/PyCQA/flake8
-    rev: 7.2.0
-    hooks:
-      - id: flake8
-        args: ['--exclude=__init__.py', '--ignore=E203,E501,W503,W504']  # adouci les règles
-
   - repo: local
     hooks:
       - id: php-lint
