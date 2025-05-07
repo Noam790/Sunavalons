@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nb_arbres = intval($_POST["nb_arbres"]);
 
     $url = "http://127.0.0.1:5000/api?ville=$ville&nb_arbres=$nb_arbres";
+    $image_path = "assets/trees/";
     $response = file_get_contents($url);
 
     if ($response !== false) {
@@ -69,7 +70,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <?php $note = $tree[1];?>
                     <div class="tree-card">
                         <span class="eco-badge">Éco-compatible</span>
-                        <img src="assets/trees/<?= htmlspecialchars($tree[0]) ?>.jpg" alt="<?= htmlspecialchars($tree[0]) ?>" class="tree-image">
+                        <img src=<?=$image_path.htmlspecialchars($tree[0]).".jpg";?> class="tree-image">
+                        <?=$image_path.htmlspecialchars($tree[0]).".jpg" ;?>
                         <div class="tree-content">
                             <h3 class="tree-name"><?= htmlspecialchars($tree[0]) ?></h3>
                         </div>

@@ -12,7 +12,7 @@ def load_trees_data():
         csv_path = os.path.join("data", "arbres_conditions.csv")
         trees_df = pd.read_csv(csv_path)
         trees_data = trees_df.to_dict(orient="records")
-        all_tree_names = [tree["genre francais"] for tree in trees_data]
+        all_tree_names = [tree["genre_francais"] for tree in trees_data]
     return trees_data
 
 
@@ -27,7 +27,7 @@ def find_closest_trees(city, k=5): # K plus proches arbres
     global all_tree_names
     if k >= len(trees_data):
         return all_tree_names
-    distances = [(tree["genre francais"], euclidean_distance(tree, city))
+    distances = [(tree["genre_francais"], euclidean_distance(tree, city))
                  for tree in trees_data]
     distances.sort(key=lambda x: x[1])
 

@@ -1,187 +1,187 @@
-nom latin,genre francais,eau,sol,climat,exposition
-Abelia x grandiflora,Abelia,4,2,4,4
-Prunus armeniaca,Abricotier,3,3,3,5
-Robinia pseudoacacia,Acacia,2,1,2,5
-Ailanthus altissima,Ailante,2,1,3,4
-Alangium chinense,Alangium,4,3,4,4
-Sorbus aria,Alisier,3,2,2,3
-Prunus cerasifera,Alouchier,2,2,1,4
-Hibiscus syriacus,Althea,3,3,3,4
-Prunus dulcis,Amandier,2,2,3,5
-Amelanchier canadensis,Amelanchier,3,2,2,4
-Phyllanthus emblica,Amla,3,3,4,5
-Pieris japonica,Andromede,4,5,2,3
-Angelica archangelica,Angelique,4,3,3,3
-Araucaria araucana,Araucaria,3,3,3,4
-Arbutus unedo,Arbousier,2,2,3,4
-Cercidiphyllum japonicum,Arbre a caramel,3,3,2,3
-Palaquium gutta,Arbre a gutta percha,5,3,5,3
-Kalopanax septemlobus,Arbre a liege de l'amour,5,2,1,4
-Tetradium daniellii,Arbre a miel,3,3,2,4
-Cotinus coggygria,Arbre a perruque,2,2,3,5
-Halesia carolina,Arbre aux cloches d'argent,4,3,3,3
-Davidia involucrata,Arbre aux mouchoirs,4,4,3,3
-Idesia polycarpa,Arbre aux pochettes,2,2,3,5
-Ginkgo biloba,Arbre aux quarante ecus,3,2,1,4
-Parrotia persica,Arbre de fer,3,3,3,4
-Cercis siliquastrum,Arbre de Judee,2,2,3,5
-Albizia julibrissin,Arbre de soie,2,3,4,5
-Paulownia tomentosa,Arbre imperial,3,2,3,5
-Firmiana simplex,Arbre parasol de Chine,3,3,4,5
-Hippophae rhamnoides,Argousier,2,1,1,5
-Aronia melanocarpa,Aronie,3,2,1,4
-Asimina triloba,Asiminier,3,3,2,3
-Crataegus monogyna,Aubepine,2,2,1,4
-Alnus glutinosa,Aulne,5,3,1,4
-Phyllostachys spp.,Bambou,3,3,3,3
-Betula pendula,Bouleau,3,2,1,4
-Buxus sempervirens,Buis,2,3,3,3
-Celtis australis,Cabrillet,3,3,4,4
-Callistemon citrinus,Callistemon,2,3,4,5
-Calocedrus decurrens,Calocedre,2,3,3,5
-Camellia japonica,Camelia,3,5,3,3
-Cinnamomum camphora,Camphrier,3,3,4,4
-Caragana arborescens,Caragana,2,1,1,5
-Carya ovata,Caryer,3,3,2,4
-Catalpa bignonioides,Catalpa,3,2,2,4
-Cedrus atlantica,Cedre,2,3,2,5
-Toona sinensis,Cedrele,3,3,3,4
-Cephalotaxus harringtonia,Cephalotaxe,3,3,3,2
-Prunus avium,Cerisier,3,3,2,4
-Elaeagnus angustifolia,Chalef,2,1,2,4
-Carpinus betulus,Charme,3,3,2,3
-Ostrya carpinifolia,Charme houblon,3,3,2,3
-Castanea sativa,Chataignier,3,4,2,4
-Quercus robur,Chene,3,3,2,4
-Lonicera japonica,Chevrefeuille,3,2,2,3
-Gymnocladus dioicus,Chicot,3,3,1,4
-Chimonanthus praecox,Chimonanthe,3,3,3,4
-Chitalpa tashkentensis,Chitalpa,2,2,3,5
-Citrus limon,Citronnier,3,3,4,5
-Clerodendrum trichotomum,Clerodendron,3,3,4,4
-Cydonia oblonga,Cognassier,3,3,2,4
-Liquidambar styraciflua,Copalme,4,3,2,4
-Cordyline australis,Cordyline,3,3,4,4
-Sorbus domestica,Cormier,2,3,2,4
-Cornus mas,Cornouiller,3,3,3,4
-Cotoneaster horizontalis,Cotoneaster,2,3,4,4
-Cryptomeria japonica,Cryptomeria,3,4,3,4
-Cunninghamia lanceolata,Cunninghamia,3,4,3,4
-Cupressus sempervirens,Cypres,2,3,4,4
-Laburnum anagyroides,Cytise,2,3,4,4
-Phoenix dactylifera,Dattier,1,2,5,5
-Koelreuteria paniculata,Desespoir,3,3,3,4
-Deutzia scabra,Deutzia,3,3,3,4
-Distylium myricoides,Distylium,3,3,3,4
-Pseudotsuga menziesii,Douglas,3,4,3,4
-Elaeagnus ebbingei,eleagnus,2,3,4,4
-Picea abies,epicea,3,4,3,4
-Picea glauca,epinette,4,4,2,4
+nom_latin,genre_francais,eau,sol,climat,exposition
+Abelia_x_grandiflora,Abelia,4,2,4,4
+Prunus_armeniaca,Abricotier,3,3,3,5
+Robinia_pseudoacacia,Acacia,2,1,2,5
+Ailanthus_altissima,Ailante,2,1,3,4
+Alangium_chinense,Alangium,4,3,4,4
+Sorbus_aria,Alisier,3,2,2,3
+Prunus_cerasifera,Alouchier,2,2,1,4
+Hibiscus_syriacus,Althea,3,3,3,4
+Prunus_dulcis,Amandier,2,2,3,5
+Amelanchier_canadensis,Amelanchier,3,2,2,4
+Phyllanthus_emblica,Amla,3,3,4,5
+Pieris_japonica,Andromede,4,5,2,3
+Angelica_archangelica,Angelique,4,3,3,3
+Araucaria_araucana,Araucaria,3,3,3,4
+Arbutus_unedo,Arbousier,2,2,3,4
+Cercidiphyllum_japonicum,Arbre_a_caramel,3,3,2,3
+Palaquium_gutta,Arbre_a_gutta_percha,5,3,5,3
+Kalopanax_septemlobus,Arbre_a_liege_de_l'amour,5,2,1,4
+Tetradium_daniellii,Arbre_a_miel,3,3,2,4
+Cotinus_coggygria,Arbre_a_perruque,2,2,3,5
+Halesia_carolina,Arbre_aux_cloches_d'argent,4,3,3,3
+Davidia_involucrata,Arbre_aux_mouchoirs,4,4,3,3
+Idesia_polycarpa,Arbre_aux_pochettes,2,2,3,5
+Ginkgo_biloba,Arbre_aux_quarante_ecus,3,2,1,4
+Parrotia_persica,Arbre_de_fer,3,3,3,4
+Cercis_siliquastrum,Arbre_de_Judee,2,2,3,5
+Albizia_julibrissin,Arbre_de_soie,2,3,4,5
+Paulownia_tomentosa,Arbre_imperial,3,2,3,5
+Firmiana_simplex,Arbre_parasol_de_Chine,3,3,4,5
+Hippophae_rhamnoides,Argousier,2,1,1,5
+Aronia_melanocarpa,Aronie,3,2,1,4
+Asimina_triloba,Asiminier,3,3,2,3
+Crataegus_monogyna,Aubepine,2,2,1,4
+Alnus_glutinosa,Aulne,5,3,1,4
+Phyllostachys_spp.,Bambou,3,3,3,3
+Betula_pendula,Bouleau,3,2,1,4
+Buxus_sempervirens,Buis,2,3,3,3
+Celtis_australis,Cabrillet,3,3,4,4
+Callistemon_citrinus,Callistemon,2,3,4,5
+Calocedrus_decurrens,Calocedre,2,3,3,5
+Camellia_japonica,Camelia,3,5,3,3
+Cinnamomum_camphora,Camphrier,3,3,4,4
+Caragana_arborescens,Caragana,2,1,1,5
+Carya_ovata,Caryer,3,3,2,4
+Catalpa_bignonioides,Catalpa,3,2,2,4
+Cedrus_atlantica,Cedre,2,3,2,5
+Toona_sinensis,Cedrele,3,3,3,4
+Cephalotaxus_harringtonia,Cephalotaxe,3,3,3,2
+Prunus_avium,Cerisier,3,3,2,4
+Elaeagnus_angustifolia,Chalef,2,1,2,4
+Carpinus_betulus,Charme,3,3,2,3
+Ostrya_carpinifolia,Charme_houblon,3,3,2,3
+Castanea_sativa,Chataignier,3,4,2,4
+Quercus_robur,Chene,3,3,2,4
+Lonicera_japonica,Chevrefeuille,3,2,2,3
+Gymnocladus_dioicus,Chicot,3,3,1,4
+Chimonanthus_praecox,Chimonanthe,3,3,3,4
+Chitalpa_tashkentensis,Chitalpa,2,2,3,5
+Citrus_limon,Citronnier,3,3,4,5
+Clerodendrum_trichotomum,Clerodendron,3,3,4,4
+Cydonia_oblonga,Cognassier,3,3,2,4
+Liquidambar_styraciflua,Copalme,4,3,2,4
+Cordyline_australis,Cordyline,3,3,4,4
+Sorbus_domestica,Cormier,2,3,2,4
+Cornus_mas,Cornouiller,3,3,3,4
+Cotoneaster_horizontalis,Cotoneaster,2,3,4,4
+Cryptomeria_japonica,Cryptomeria,3,4,3,4
+Cunninghamia_lanceolata,Cunninghamia,3,4,3,4
+Cupressus_sempervirens,Cypres,2,3,4,4
+Laburnum_anagyroides,Cytise,2,3,4,4
+Phoenix_dactylifera,Dattier,1,2,5,5
+Koelreuteria_paniculata,Desespoir,3,3,3,4
+Deutzia_scabra,Deutzia,3,3,3,4
+Distylium_myricoides,Distylium,3,3,3,4
+Pseudotsuga_menziesii,Douglas,3,4,3,4
+Elaeagnus_ebbingei,eleagnus,2,3,4,4
+Picea_abies,epicea,3,4,3,4
+Picea_glauca,epinette,4,4,2,4
 Acer,erable,3,3,3,4
-Eucalyptus globulus,Eucalyptus,2,3,5,5
-Euscaphis japonica,Euscaphis,3,3,4,4
-Fagus sylvatica,Faux,3,3,3,3
-Balanites aegyptiaca,Faux dattier,2,2,5,5
-Chamaecyparis lawsoniana,Faux cypres,3,3,3,4
-Gleditsia triacanthos,Fevier,2,3,4,5
-Ficus carica,Figuier,2,3,5,5
-Phillyrea angustifolia,Filaire,3,3,3,4
-Fontanesia phillyreoides,Fontanesia,3,3,3,4
-Fremontodendron californicum,Fremontia,2,2,5,5
-Fraxinus excelsior,Frene,4,4,3,4
-Euonymus europaeus,Fusain,3,3,3,4
-Cercis canadensis,Gainier,3,3,3,4
-Garrya elliptica,Garrya,2,3,4,4
-Cytisus scoparius,Genet,2,2,4,5
-Juniperus communis,Genevrier,1,2,5,5
-Wisteria sinensis,Glycine,3,3,4,5
-Psidium guajava,Goyavier,3,3,5,5
-Punica granatum,Grenadier,2,3,5,5
-Heptacodium miconioides,Heptacodion,3,3,4,4
-Fagus sylvatica,Hetre,4,4,3,4
-Thujopsis dolabrata,Hiba,4,4,3,4
-Ilex aquifolium,Houx,3,3,3,4
-Idesia polycarpa,Idesia,3,3,4,4
-Taxus baccata,If,3,3,3,4
-Ziziphus jujuba,Jujubier,2,3,5,5
-Diospyros kaki,Kaki,2,3,5,5
-Kalopanax septemlobus,Kalopanax,3,3,4,4
-Cercidiphyllum japonicum,Katsura,1,3,3,3
-Laurus nobilis,Laurier,2,3,3,4
-Calocedrus decurrens,Libocedre,3,4,3,4
-Syringa vulgaris,Lilas,2,3,3,4
-Maackia amurensis,Maackie,2,3,3,4
-Magnolia grandiflora,Magnolia,3,4,3,4
-Aesculus hippocastanum,Marronnier,3,4,3,4
-Larix decidua,Meleze,2,3,3,4
-Prunus avium,Merisier,3,3,3,4
-Metasequoia glyptostroboides,Metasequoia,3,3,3,4
-Celtis australis,Micocoulier,2,3,3,4
-Acacia dealbata,Mimosa,2,3,3,4
-Morus alba,Murier,2,3,3,4
-Myristica fragrans,Muscadier,3,4,4,4
-Prunus cerasifera,Myrobolan,3,3,3,4
-Myrtus communis,Myrte,2,3,3,4
-Mespilus germanica,Neflier,2,3,3,4
-Rhamnus cathartica,Nerprun,2,3,3,4
-Corylus avellana,Noisetier,2,3,3,4
-Nothofagus antarctica,Nothofagus,3,4,3,4
-Juglans regia,Noyer,3,4,3,4
-Nyssa sylvatica,Nyssa,3,4,3,4
-Olea europaea,Olivier,1,3,4,5
-Citrus sinensis,Oranger,3,4,4,5
-Ulmus minor,Orme,2,3,3,4
-Salix viminalis,Osier,4,3,3,4
-Osmanthus fragrans,Osmanthe,2,3,3,4
-Ostrya carpinifolia,Ostryer,2,3,3,4
-Washingtonia robusta,Palmier,2,3,4,5
-Carica papaya,Papayer,3,4,5,5
-Parrotia persica,Parrotie,2,3,3,4
-Paulownia tomentosa,Paulownia,3,3,3,4
-Aesculus pavia,Pavier,2,3,3,4
-Prunus persica,Pecher,2,3,4,5
-Populus nigra,Peuplier,5,4,3,4
-Phellodendron amurense,Phellodendron,3,4,4,5
+Eucalyptus_globulus,Eucalyptus,2,3,5,5
+Euscaphis_japonica,Euscaphis,3,3,4,4
+Fagus_sylvatica,Faux,3,3,3,3
+Balanites_aegyptiaca,Faux_dattier,2,2,5,5
+Chamaecyparis_lawsoniana,Faux_cypres,3,3,3,4
+Gleditsia_triacanthos,Fevier,2,3,4,5
+Ficus_carica,Figuier,2,3,5,5
+Phillyrea_angustifolia,Filaire,3,3,3,4
+Fontanesia_phillyreoides,Fontanesia,3,3,3,4
+Fremontodendron_californicum,Fremontia,2,2,5,5
+Fraxinus_excelsior,Frene,4,4,3,4
+Euonymus_europaeus,Fusain,3,3,3,4
+Cercis_canadensis,Gainier,3,3,3,4
+Garrya_elliptica,Garrya,2,3,4,4
+Cytisus_scoparius,Genet,2,2,4,5
+Juniperus_communis,Genevrier,1,2,5,5
+Wisteria_sinensis,Glycine,3,3,4,5
+Psidium_guajava,Goyavier,3,3,5,5
+Punica_granatum,Grenadier,2,3,5,5
+Heptacodium_miconioides,Heptacodion,3,3,4,4
+Fagus_sylvatica,Hetre,4,4,3,4
+Thujopsis_dolabrata,Hiba,4,4,3,4
+Ilex_aquifolium,Houx,3,3,3,4
+Idesia_polycarpa,Idesia,3,3,4,4
+Taxus_baccata,If,3,3,3,4
+Ziziphus_jujuba,Jujubier,2,3,5,5
+Diospyros_kaki,Kaki,2,3,5,5
+Kalopanax_septemlobus,Kalopanax,3,3,4,4
+Cercidiphyllum_japonicum,Katsura,1,3,3,3
+Laurus_nobilis,Laurier,2,3,3,4
+Calocedrus_decurrens,Libocedre,3,4,3,4
+Syringa_vulgaris,Lilas,2,3,3,4
+Maackia_amurensis,Maackie,2,3,3,4
+Magnolia_grandiflora,Magnolia,3,4,3,4
+Aesculus_hippocastanum,Marronnier,3,4,3,4
+Larix_decidua,Meleze,2,3,3,4
+Prunus_avium,Merisier,3,3,3,4
+Metasequoia_glyptostroboides,Metasequoia,3,3,3,4
+Celtis_australis,Micocoulier,2,3,3,4
+Acacia_dealbata,Mimosa,2,3,3,4
+Morus_alba,Murier,2,3,3,4
+Myristica_fragrans,Muscadier,3,4,4,4
+Prunus_cerasifera,Myrobolan,3,3,3,4
+Myrtus_communis,Myrte,2,3,3,4
+Mespilus_germanica,Neflier,2,3,3,4
+Rhamnus_cathartica,Nerprun,2,3,3,4
+Corylus_avellana,Noisetier,2,3,3,4
+Nothofagus_antarctica,Nothofagus,3,4,3,4
+Juglans_regia,Noyer,3,4,3,4
+Nyssa_sylvatica,Nyssa,3,4,3,4
+Olea_europaea,Olivier,1,3,4,5
+Citrus_sinensis,Oranger,3,4,4,5
+Ulmus_minor,Orme,2,3,3,4
+Salix_viminalis,Osier,4,3,3,4
+Osmanthus_fragrans,Osmanthe,2,3,3,4
+Ostrya_carpinifolia,Ostryer,2,3,3,4
+Washingtonia_robusta,Palmier,2,3,4,5
+Carica_papaya,Papayer,3,4,5,5
+Parrotia_persica,Parrotie,2,3,3,4
+Paulownia_tomentosa,Paulownia,3,3,3,4
+Aesculus_pavia,Pavier,2,3,3,4
+Prunus_persica,Pecher,2,3,4,5
+Populus_nigra,Peuplier,5,4,3,4
+Phellodendron_amurense,Phellodendron,3,4,4,5
 Photinia,Photinia,4,3,4,5
-Pinus sylvestris,Pin,2,3,4,5
-Pistacia vera,Pistachier,2,3,5,5
-Pittosporum tobira,Pittosporum,3,3,3,4
+Pinus_sylvestris,Pin,2,3,4,5
+Pistacia_vera,Pistachier,2,3,5,5
+Pittosporum_tobira,Pittosporum,3,3,3,4
 Platanus,Platane,3,3,4,5
-Platycarya strobilacea,Platycarya,3,3,3,4
-Pyrus communis,Poirier,3,4,4,5
-Zanthoxylum piperitum,Poivrier,3,3,4,5
-Poliothyrsis sinensis,Poliothyrsis,3,3,4,4
-Malus domestica,Pommier,3,4,4,5
-Prunus spinosa,Prunellier,2,3,4,5
-Prunus domestica,Prunier,3,3,4,5
-Pterocarya fraxinifolia,Pterocaryer,4,4,3,4
-Pterostyrax hispida,Pterostyrax,3,3,3,4
-Cissus antarctica,Raisinier,3,3,4,5
-Rhododendron ponticum,Rhododendron,4,4,3,3
-Sabal palmetto,Sabal,3,3,5,5
-Abies alba,Sapin,4,4,3,4
-Sassafras albidum,Sassafras,3,3,4,4
-Salix alba,Saule,5,4,3,4
-Koelreuteria paniculata,Savonnier,2,3,4,5
-Sequoia sempervirens,Sequoia,4,4,3,5
-Philadelphus coronarius,Seringas,3,3,4,5
-Sophora japonica,Sophora,2,3,4,5
-Sorbus aucuparia,Sorbier,3,4,3,4
-Staphylea pinnata,Staphylier,3,3,3,4
-Firmiana simplex,Sterculier,3,3,5,5
-Stewartia pseudocamellia,Stewartia,4,4,3,4
-Styrax japonicus,Styrax,3,3,4,4
-Rhus typhina,Sumac,2,2,4,5
-Sambucus nigra,Sureau,4,4,3,4
-Sycopsis sinensis,Sycopsis,3,3,3,4
-Tamarix gallica,Tamaris,2,2,5,5
-Tapiscia sinensis,Tapiscia,3,3,4,4
-Thuja occidentalis,Thuya,3,3,3,4
-Tilia cordata,Tilleul,4,4,3,4
-Ligustrum vulgare,Troene,3,3,3,4
-Tsuga canadensis,Tsuga,4,4,2,3
-Liriodendron tulipifera,Tulipier,4,4,3,4
-Viburnum opulus,Viorne,3,3,3,4
-Cladrastis kentukea,Virgilier,2,3,4,5
-Xanthoceras sorbifolium,Xanthoceras,2,3,4,5
-Zelkova serrata,Zelkova,3,4,3,4
+Platycarya_strobilacea,Platycarya,3,3,3,4
+Pyrus_communis,Poirier,3,4,4,5
+Zanthoxylum_piperitum,Poivrier,3,3,4,5
+Poliothyrsis_sinensis,Poliothyrsis,3,3,4,4
+Malus_domestica,Pommier,3,4,4,5
+Prunus_spinosa,Prunellier,2,3,4,5
+Prunus_domestica,Prunier,3,3,4,5
+Pterocarya_fraxinifolia,Pterocaryer,4,4,3,4
+Pterostyrax_hispida,Pterostyrax,3,3,3,4
+Cissus_antarctica,Raisinier,3,3,4,5
+Rhododendron_ponticum,Rhododendron,4,4,3,3
+Sabal_palmetto,Sabal,3,3,5,5
+Abies_alba,Sapin,4,4,3,4
+Sassafras_albidum,Sassafras,3,3,4,4
+Salix_alba,Saule,5,4,3,4
+Koelreuteria_paniculata,Savonnier,2,3,4,5
+Sequoia_sempervirens,Sequoia,4,4,3,5
+Philadelphus_coronarius,Seringas,3,3,4,5
+Sophora_japonica,Sophora,2,3,4,5
+Sorbus_aucuparia,Sorbier,3,4,3,4
+Staphylea_pinnata,Staphylier,3,3,3,4
+Firmiana_simplex,Sterculier,3,3,5,5
+Stewartia_pseudocamellia,Stewartia,4,4,3,4
+Styrax_japonicus,Styrax,3,3,4,4
+Rhus_typhina,Sumac,2,2,4,5
+Sambucus_nigra,Sureau,4,4,3,4
+Sycopsis_sinensis,Sycopsis,3,3,3,4
+Tamarix_gallica,Tamaris,2,2,5,5
+Tapiscia_sinensis,Tapiscia,3,3,4,4
+Thuja_occidentalis,Thuya,3,3,3,4
+Tilia_cordata,Tilleul,4,4,3,4
+Ligustrum_vulgare,Troene,3,3,3,4
+Tsuga_canadensis,Tsuga,4,4,2,3
+Liriodendron_tulipifera,Tulipier,4,4,3,4
+Viburnum_opulus,Viorne,3,3,3,4
+Cladrastis_kentukea,Virgilier,2,3,4,5
+Xanthoceras_sorbifolium,Xanthoceras,2,3,4,5
+Zelkova_serrata,Zelkova,3,4,3,4
