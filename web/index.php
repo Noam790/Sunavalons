@@ -2,6 +2,7 @@
 $trees = null;
 $error = null;
 
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $ville = urlencode($_POST["ville"]);
     $nb_arbres = intval($_POST["nb_arbres"]);
@@ -12,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($response !== false) {
         $data = json_decode($response, true);
-        print_r($data);
 
         if (isset($data["error"])) {
             $error = $data["error"];
@@ -67,13 +67,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <div class="tree-container">
                 <?php foreach ($trees as $tree): ?>
-                    <?php $note = $tree[1];?>
+                    <?php
+                        $note = $tree[1];
+                        $fill_ratio = max(0, min(1, 1 - ($note / 6.7)));
+                        $fill_percent = intval($fill_ratio * 100);
+                    ?>
                     <div class="tree-card">
-                        <span class="eco-badge">Éco-compatible</span>
+                    <span class="eco-badge">
+                        <span class="eco-fill" style="width: <?= $fill_percent ?>%;"></span>
+                        <span class="eco-text">Éco-compatible</span>
+                    </span>
                         <img src=<?=$image_path.htmlspecialchars($tree[0]).".jpg";?> class="tree-image">
-                        <?=$image_path.htmlspecialchars($tree[0]).".jpg" ;?>
                         <div class="tree-content">
-                            <h3 class="tree-name"><?= htmlspecialchars($tree[0]) ?></h3>
+                            <h3 class="tree-name"><?= str_replace("_"," ",htmlspecialchars($tree[0]))?></h3>
                         </div>
                     </div>
                 <?php endforeach; ?>

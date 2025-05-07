@@ -175,15 +175,31 @@ button:hover {
 }
 
 .eco-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: var(--primary-color);
-    color: white;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    color: black;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 500;
+    background: #e0e0e0;
+}
+
+.eco-badge .eco-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--primary-color);
+    z-index: 1;
+    transition: width 0.3s ease-in-out;
+    border-radius: 20px;
+}
+
+.eco-badge .eco-text {
+    position: relative;
+    z-index: 2;
 }
 
 .eco-tips {
