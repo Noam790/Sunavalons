@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($response !== false) {
         $data = json_decode($response, true);
+        print_r($data);
 
         if (isset($data["error"])) {
             $error = $data["error"];
@@ -65,11 +66,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             <div class="tree-container">
                 <?php foreach ($trees as $tree): ?>
+                    <?php $note = $tree[1];?>
                     <div class="tree-card">
                         <span class="eco-badge">Éco-compatible</span>
-                        <img src="assets/trees/<?= htmlspecialchars($tree) ?>.jpg" alt="<?= htmlspecialchars($tree) ?>" class="tree-image">
+                        <img src="assets/trees/<?= htmlspecialchars($tree[0]) ?>.jpg" alt="<?= htmlspecialchars($tree[0]) ?>" class="tree-image">
                         <div class="tree-content">
-                            <h3 class="tree-name"><?= htmlspecialchars($tree) ?></h3>
+                            <h3 class="tree-name"><?= htmlspecialchars($tree[0]) ?></h3>
                         </div>
                     </div>
                 <?php endforeach; ?>
