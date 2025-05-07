@@ -31,4 +31,4 @@ def find_closest_trees(city, k=5): # K plus proches arbres
                  for tree in trees_data]
     distances.sort(key=lambda x: x[1])
 
-    return [tree[0] for tree in distances[:k]]
+    return distances[:k]

@@ -13,7 +13,7 @@ fi
 
 # Installer les dépendances
 echo "Vérification des dépendances Python..."
-if ! python -m pip install -r requirements.txt; then
+if ! $PYTHON_CMD -m pip install -r requirements.txt; then
     echo "Erreur lors de l'installation des dépendances Python"
     exit 1
 fi
