@@ -3,16 +3,16 @@ import os
 
 import pandas as pd
 
-trees_data = None
 
-def load_trees_data():
-    global trees_data
-    if trees_data is None:
-        csv_path = os.path.join("data", "arbres_conditions.csv")
+def load_trees_data(city=None):
+    csv_path = os.path.join("data", f"arbres_conditions.csv")
+    if(city is not None):
+        csv_path = os.path.join("data", f"arbres_{city.lower()}.csv")
+    try:
         trees_df = pd.read_csv(csv_path)
-        trees_data = trees_df.to_dict(orient="records")
-    return trees_data
-
+    except:
+        return None
+    return trees_df.to_dict(orient="records")
 
 def euclidean_distance(tree, city_data):
     return math.sqrt((tree["eau"] - city_data["eau"])**2 +
@@ -21,7 +21,7 @@ def euclidean_distance(tree, city_data):
                      (tree["exposition"] - city_data["exposition"])**2)
 
 
-def find_closest_trees(city, k=5): # K plus proches arbres
+def find_closest_trees(city, trees_data, k=5): # K plus proches arbres
     distances = [(tree["genre_francais"], euclidean_distance(tree, city))for tree in trees_data]
     distances.sort(key=lambda x: x[1])
 

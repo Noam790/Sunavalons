@@ -5,9 +5,8 @@ $error = null;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $ville = urlencode($_POST["ville"]);
-    $nb_arbres = intval($_POST["nb_arbres"]);
 
-    $url = "http://127.0.0.1:5000/api?ville=$ville&nb_arbres=$nb_arbres";
+    $url = "http://127.0.0.1:5000/api/city_trees?ville=$ville";
     $image_path = "assets/trees/";
     $response = file_get_contents($url);
 
@@ -50,12 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <input type="text" id="ville" name="ville" required placeholder="Ex: Paris, Lyon, Bordeaux...">
             </div>
 
-            <div class="form-row">
-                <label for="nb_arbres">Nombre d'arbres :</label>
-                <input type="number" id="nb_arbres" name="nb_arbres" required min="1" max="200" placeholder="Entre 1 et 200">
-            </div>
-
-            <button type="submit">Rechercher</button>
+            <button type="submit">Analyser</button>
         </form>
 
         <?php if ($error): ?>
@@ -63,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <p>Erreur : <?= htmlspecialchars($error) ?></p>
             </div>
         <?php elseif (is_array($trees)): ?>
-            <h2>Arbres recommandés pour <?= htmlspecialchars($_POST["ville"]) ?></h2>
+            <h2>Arbres des plus au moins adaptés dans la ville de <?= htmlspecialchars($_POST["ville"]) ?></h2>
 
             <div class="tree-container">
                 <?php foreach ($trees as $tree): ?>
@@ -75,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <div class="tree-card">
                     <span class="eco-badge">
                         <span class="eco-fill" style="width: <?= $fill_percent ?>%;"></span>
-                        <span class="eco-text">Éco-compatible</span>
+                        <span class="eco-text">Score éco-compatible</span>
                     </span>
                         <img src=<?=$image_path.htmlspecialchars($tree[0]).".jpg";?> class="tree-image">
                         <div class="tree-content">

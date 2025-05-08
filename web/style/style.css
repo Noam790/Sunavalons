@@ -258,6 +258,30 @@ footer {
     font-size: 0.9rem;
 }
 
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #0e8f14;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    background: #e0f5e6;
+    color: #1b3c1d;
+}
+
 @media (max-width: 768px) {
     .form-row {
         flex-direction: column;
