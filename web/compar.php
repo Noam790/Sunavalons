@@ -1,25 +1,50 @@
 <?php
-$trees = null;
+$best_trees = null;
+$worst_trees = null;
 $error = null;
-
+$ville = null;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $ville = urlencode($_POST["ville"]);
-
-    $url = "http://127.0.0.1:5000/api/city_trees?ville=$ville";
+    $ville = $_POST["ville"] ?? null;
     $image_path = "assets/trees/";
-    $response = file_get_contents($url);
 
-    if ($response !== false) {
-        $data = json_decode($response, true);
+    if (isset($_FILES["csv_file"]) && $ville) {
+        $upload_dir = __DIR__ . "/../data/";
 
-        if (isset($data["error"])) {
-            $error = $data["error"];
+        // Obtenir l'extension du fichier original
+        $original_filename = $_FILES["csv_file"]["name"];
+        $file_extension = strtolower(pathinfo($original_filename, PATHINFO_EXTENSION));
+
+        // Vérifier que l'extension est autorisée
+        $allowed_extensions = ['csv', 'ods', 'xlsx'];
+        if (!in_array($file_extension, $allowed_extensions)) {
+            $error = "Format de fichier non supporté. Seuls les fichiers CSV, ODS ou XLSX sont acceptés.";
         } else {
-            $trees = $data;
+            $upload_name = "arbres_" . strtolower($ville) . "." . $file_extension;
+            $upload_path = $upload_dir . $upload_name;
+
+            if (move_uploaded_file($_FILES["csv_file"]["tmp_name"], $upload_path)) {
+                $success = "Le fichier a bien été envoyé ! Vous pouvez relancer l'analyse.";
+            } else {
+                $error = "Erreur lors de l'envoi du fichier.";
+            }
         }
     } else {
-        $error = "Erreur lors de la communication avec le serveur Flask.";
+        $url = "http://127.0.0.1:5000/api/city_trees?ville=" . urlencode($ville);
+        $response = @file_get_contents($url);
+
+        if ($response !== false) {
+            $data = json_decode($response, true);
+
+            if (isset($data["error"])) {
+                $error = $data["error"];
+            } else {
+                $best_trees = $data["best_trees"];
+                $worst_trees = $data["worst_trees"] ?? null;
+            }
+        } else {
+            $error = "Votre commune n'a pas fourni la liste de ses arbres.";
+        }
     }
 }
 ?>
@@ -48,29 +73,56 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <label for="ville">Ville :</label>
                 <input type="text" id="ville" name="ville" required placeholder="Ex: Paris, Lyon, Bordeaux...">
             </div>
-
             <button type="submit">Analyser</button>
         </form>
 
-        <?php if ($error): ?>
+        <?php if ($error === "Votre commune n'a pas fourni la liste de ses arbres." && $ville): ?>
+            <div class="error">
+                <p><?= htmlspecialchars($error) ?></p>
+                <p>
+                    Vous pouvez fournir un fichier CSV contenant la liste des arbres de votre commune.<br>
+                    <strong>Format attendu :</strong> Nom de la colonne  : "genre_francais", un nom d'arbre par ligne, première lettre en majuscule, <br>
+                    utilisez des <b>_</b> à la place des espaces ou des tirets.<br>
+                    Exemple :<br>
+                    <code>
+                        genre_francais<br>
+                        Platane<br>
+                        Arbre_de_judee<br>
+                        Faux_cypres<br>
+                        ...
+                    </code>
+                </p>
+                <form method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="ville" value="<?= htmlspecialchars($ville) ?>">
+                    <input type="file" name="csv_file" accept=".csv,.xlsx,.xls,.ods" required>
+                    <button type="submit">Envoyer le CSV</button>
+                </form>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($error && $error !== "Votre commune n'a pas fourni la liste de ses arbres."): ?>
             <div class="error">
                 <p>Erreur : <?= htmlspecialchars($error) ?></p>
             </div>
-        <?php elseif (is_array($trees)): ?>
-            <h2>Arbres des plus au moins adaptés dans la ville de <?= htmlspecialchars($_POST["ville"]) ?></h2>
+        <?php elseif (isset($success)): ?>
+            <div class="success">
+                <p><?= htmlspecialchars($success) ?></p>
+            </div>
+        <?php elseif (isset($best_trees) && isset($_POST["ville"]) && !$error): ?>
+            <h2>Arbres les mieux adaptés de la ville de <?= htmlspecialchars($_POST["ville"]) ?></h2>
 
             <div class="tree-container">
-                <?php foreach ($trees as $tree): ?>
+                <?php foreach ($best_trees as $tree): ?>
                     <?php
                         $note = $tree[1];
                         $fill_ratio = max(0, min(1, 1 - ($note / 8)));
                         $fill_percent = intval($fill_ratio * 100);
                     ?>
                     <div class="tree-card">
-                    <span class="eco-badge">
-                        <span class="eco-fill" style="width: <?= $fill_percent ?>%;"></span>
-                        <span class="eco-text">Score éco-compatible</span>
-                    </span>
+                        <span class="eco-badge">
+                            <span class="eco-fill" style="width: <?= $fill_percent ?>%;"></span>
+                            <span class="eco-text">Score éco-compatible</span>
+                        </span>
                         <img src=<?=$image_path.htmlspecialchars($tree[0]).".jpg";?> class="tree-image">
                         <div class="tree-content">
                             <h3 class="tree-name"><?= str_replace("_"," ",htmlspecialchars($tree[0]))?></h3>
@@ -78,32 +130,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 <?php endforeach; ?>
             </div>
+        <?php endif; ?>
 
-            <div class="eco-tips">
-                <h3>Conseils pour une plantation durable</h3>
-                <p>Planter des arbres en ville offre de nombreux bénéfices écologiques et améliore la qualité de vie des citadins.</p>
-
-                <div class="tips-container">
-                    <div class="tip-card">
-                        <p class="tip-title">Îlots de fraîcheur</p>
-                        <p>Les arbres réduisent l'effet d'îlot de chaleur urbain en créant de l'ombre et en rafraîchissant l'air jusqu'à 8°C.</p>
-                    </div>
-
-                    <div class="tip-card">
-                        <p class="tip-title">Qualité de l'air</p>
-                        <p>Un arbre adulte peut absorber jusqu'à 22kg de CO₂ par an et filtrer les particules fines de l'atmosphère.</p>
-                    </div>
-
-                    <div class="tip-card">
-                        <p class="tip-title">Biodiversité</p>
-                        <p>Les arbres urbains constituent des habitats et des sources de nourriture pour la faune, favorisant la biodiversité locale.</p>
-                    </div>
-
-                    <div class="tip-card">
-                        <p class="tip-title">Visuel</p>
-                        <p>Une ville fleurie et colorée sera toujours plus agréable qu'une ville industrielle</p>
+        <?php if (isset($worst_trees)): ?>
+            <h2>Arbres les moins adaptés</h2>
+            <div class="tree-container">
+            <?php foreach ($worst_trees as $tree): ?>
+                <div class="tree-card">
+                    <span class="eco-badge">
+                        <span class="eco-fill" style="width: <?= $fill_percent ?>%;"></span>
+                        <span class="eco-text">Score éco-compatible</span>
+                    </span>
+                    <img src="<?= $image_path . htmlspecialchars($tree[0]) ?>.jpg" class="tree-image">
+                    <div class="tree-content">
+                        <h3 class="tree-name"><?= str_replace("_", " ", htmlspecialchars($tree[0])) ?></h3>
                     </div>
                 </div>
+            <?php endforeach; ?>
+
             </div>
         <?php endif; ?>
     </main>

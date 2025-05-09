@@ -53,9 +53,16 @@ def api_city_trees():
 
     # 5. Trier par compatibilité (distance)
     sorted_trees = find_closest_trees(city_data, filtered_trees, len(filtered_trees))
-    print(sorted_trees)
+    best_score = sorted_trees[0][1]
+    worst_score = sorted_trees[-1][1]
 
-    # 6. Retourner la liste triée
-    return jsonify(sorted_trees)
+    # 6. Trouver les arbres les plus et moins adaptés
+    best_trees = [i for i in sorted_trees if i[1] == best_score]
+    worst_trees = [i for i in sorted_trees if i[1] == worst_score]
+
+    print(best_trees, worst_trees, best_trees == worst_trees)
+
+    # 7. Retourner la liste triée
+    return jsonify({"best_trees": best_trees, "worst_trees": worst_trees}) if best_trees != worst_trees else jsonify({"best_trees": best_trees})
 
 app.run()

@@ -5,14 +5,39 @@ import pandas as pd
 
 
 def load_trees_data(city=None):
-    csv_path = os.path.join("data", f"arbres_conditions.csv")
-    if(city is not None):
-        csv_path = os.path.join("data", f"arbres_{city.lower()}.csv")
-    try:
-        trees_df = pd.read_csv(csv_path)
-    except:
+    base_name = "arbres_conditions"
+    if city is not None:
+        base_name = f"arbres_{city.lower()}"
+
+    data_dir = "data"
+    extensions = [".csv", ".ods", ".xlsx"]
+    file_path = None
+
+    for ext in extensions:
+        candidate_path = os.path.join(data_dir, base_name + ext)
+        if os.path.isfile(candidate_path):
+            file_path = candidate_path
+            print(file_path)
+            break
+
+    if not file_path:
         return None
-    return trees_df.to_dict(orient="records")
+
+    try:
+        if file_path.endswith(".csv"):
+            df = pd.read_csv(file_path)
+        elif file_path.endswith(".ods"):
+            df = pd.read_excel(file_path, engine="odf")
+        elif file_path.endswith(".xlsx"):
+            df = pd.read_excel(file_path)
+        else:
+            return None
+    except Exception as e:
+        print(f"Erreur lors du chargement : {e}")
+        return None
+
+    return df.to_dict(orient="records")
+
 
 def euclidean_distance(tree, city_data):
     return math.sqrt((tree["eau"] - city_data["eau"])**2 +
