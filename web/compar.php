@@ -109,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <p><?= htmlspecialchars($success) ?></p>
             </div>
         <?php elseif (isset($best_trees) && isset($_POST["ville"]) && !$error): ?>
-            <h2>Arbres les mieux adaptés de la ville de <?= htmlspecialchars($_POST["ville"]) ?></h2>
+            <h2>Arbres les mieux adaptés présents dans la ville de <?= htmlspecialchars($_POST["ville"]) ?></h2>
 
             <div class="tree-container">
                 <?php foreach ($best_trees as $tree): ?>
@@ -147,8 +147,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                 </div>
             <?php endforeach; ?>
-
             </div>
+        <?php endif; ?>
+
+        <?php if (!$error && isset($ville)): ?>
+            <form method="post" action="index.php" style="margin-top:2em; display:inline; ">
+                <input type="hidden" name="ville" value="<?= htmlspecialchars($_POST["ville"]) ?>">
+                <button type="submit" style="display:inline-flex; align-items:center; gap:6px; font-size:1em; padding:8px 8px; cursor:pointer;">
+                    Voir les
+                    <input type="number" name="nb_arbres" value="5" min="1" max="20" style="width:40px; font-size:1em; padding:0; text-align:center; margin:0; line-height:1;">
+                    arbres recommandés pour <?= htmlspecialchars($ville) ?>
+                </button>
+            </form>
         <?php endif; ?>
     </main>
 
