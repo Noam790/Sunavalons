@@ -23,6 +23,7 @@ function call_flask_api($endpoint) {
 
 function handle_form_submission() {
     require_once 'includes/validate.php';
+    require_once 'includes/clean_data.php';
     $result = [
         'error' => null,
         'success' => null,
@@ -44,18 +45,24 @@ function handle_form_submission() {
     // Upload CSV
     if (isset($_FILES["csv_file"]) && $ville) {
         $upload_dir = __DIR__ . "/../../data/";
+
         $original_filename = $_FILES["csv_file"]["name"];
         $file_extension = strtolower(pathinfo($original_filename, PATHINFO_EXTENSION));
         $allowed_extensions = ['csv', 'ods', 'xlsx'];
         if (!in_array($file_extension, $allowed_extensions)) {
             $result['error'] = "Format de fichier non supporté. Seuls les fichiers CSV, ODS ou XLSX sont acceptés.";
         } else {
-            $upload_name = "arbres_" . strtolower($ville) . "." . $file_extension;
+            $upload_name = "arbres_" . strtolower($ville) . ".csv"; // Toujours .csv après nettoyage
             $upload_path = $upload_dir . $upload_name;
-            if (move_uploaded_file($_FILES["csv_file"]["tmp_name"], $upload_path)) {
-                $result['success'] = "Le fichier a bien été envoyé ! Vous pouvez relancer l'analyse.";
+
+            // Fichier temporaire pour l'upload
+            $tmp_file = $_FILES["csv_file"]["tmp_name"];
+
+            // Nettoie et convertit le fichier avant de l'enregistrer
+            if (process_csv_file($tmp_file, $upload_path)) {
+                $result['success'] = "Le fichier a bien été envoyé, nettoyé et enregistré ! Vous pouvez relancer l'analyse.";
             } else {
-                $result['error'] = "Erreur lors de l'envoi du fichier.";
+                $result['error'] = "Erreur lors du traitement ou de l'enregistrement du fichier.";
             }
         }
         return $result;

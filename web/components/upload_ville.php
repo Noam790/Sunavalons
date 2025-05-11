@@ -1,6 +1,6 @@
 <p>
     Vous pouvez fournir un fichier CSV contenant la liste des arbres de votre commune.<br>
-    <strong>Format attendu :</strong> Nom de la colonne  : "genre_francais", un nom d'arbre par ligne, première lettre en majuscule, <br>
+    <strong>Format attendu :</strong>un nom d'arbre par ligne, première lettre en majuscule, <br>
     utilisez des <b>_</b> à la place des espaces ou des tirets.<br>
     Exemple :<br>
     <code>

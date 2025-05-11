@@ -48,9 +48,9 @@ $ville = $result['ville'];
                 $title = "Arbres les moins adaptés";
                 $trees = $worst_trees;
                 include 'components/tree_list.php';
+                include 'components/redirect.php';
             ?>
         <?php endif; ?>
-        <?php include 'components/redirect.php';?>
     </main>
 
     <?php include 'components/footer.php'; ?>
