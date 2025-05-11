@@ -17,7 +17,6 @@ def load_trees_data(city=None):
         candidate_path = os.path.join(data_dir, base_name + ext)
         if os.path.isfile(candidate_path):
             file_path = candidate_path
-            print(file_path)
             break
 
     if not file_path:
@@ -36,7 +35,7 @@ def load_trees_data(city=None):
         print(f"Erreur lors du chargement : {e}")
         return None
 
-    return df.to_dict(orient="records")
+    return df
 
 
 def euclidean_distance(tree, city_data):
@@ -47,7 +46,8 @@ def euclidean_distance(tree, city_data):
 
 
 def find_closest_trees(city, trees_data, k=5): # K plus proches arbres
-    distances = [(tree["genre_francais"], euclidean_distance(tree, city))for tree in trees_data]
+    distances = [
+    (tree["genre_francais"], euclidean_distance(tree, city))for _, tree in trees_data.iterrows()]
     distances.sort(key=lambda x: x[1])
 
     return distances[:k]

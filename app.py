@@ -10,59 +10,50 @@ app = Flask(__name__)
 tree_set = load_trees_data()
 
 @app.route("/api")
-
 def api_get_trees():
-    city = request.args.get("ville") # Paramètres du formulaire
+    city = request.args.get("ville") # Paramètres du formulaire (requis)
     nb_trees = request.args.get("nb_arbres", type=int)
 
-    if not city or not nb_trees:
-        return jsonify({"error": "Paramètres manquants"}), 400
-
     trees = get_results(city, nb_trees, tree_set)
-    print(trees)
 
-    if isinstance(trees, str):  # Erreur retournée par get_results
+    if isinstance(trees, str):
         return jsonify({"error": trees}), 400
 
-    return jsonify(trees)
+    return jsonify(trees.to_dict(orient="records"))
 
 @app.route("/api/city_trees")
 def api_city_trees():
     city = request.args.get("ville")
-    if not city:
-        return jsonify({"error": "Paramètres manquants"}), 400
 
-    # 1. Récupérer le climat de la ville
-    city_data = extract_data_for_city(city)
-    if not city_data:
-        return jsonify({"error": "Climat de la ville introuvable"}), 400
-
-    # 2. Charger les arbres de la ville
+    # Charger les arbres de la ville
     city_trees = load_trees_data(city)
     if city_trees is None:
         return jsonify({"error": "Le csv de votre ville est introuvable"}), 400
 
-    # 3. Récupérer les noms de référence
-    city_tree_names = set([i["genre_francais"] for i in city_trees])
+    # Filtrer les arbres communs à la ville et notre reference
+    filtered_trees = tree_set[tree_set["genre_francais"].isin(city_trees["genre_francais"])]
 
-    # 4. Garder seulement les arbres communs (présents dans les deux)
-    filtered_trees = [tree for tree in tree_set if tree["genre_francais"] in city_tree_names]
-
-    if not filtered_trees:
+    if filtered_trees.empty:
         return jsonify({"error": "Aucun arbre commun trouvé"}), 400
 
-    # 5. Trier par compatibilité (distance)
-    sorted_trees = find_closest_trees(city_data, filtered_trees, len(filtered_trees))
-    best_score = sorted_trees[0][1]
-    worst_score = sorted_trees[-1][1]
+    # Utiliser get_results pour trier les arbres
+    trees = get_results(city, len(filtered_trees), filtered_trees)
 
-    # 6. Trouver les arbres les plus et moins adaptés
-    best_trees = [i for i in sorted_trees if i[1] == best_score]
-    worst_trees = [i for i in sorted_trees if i[1] == worst_score]
+    if isinstance(trees, str):
+        return jsonify({"error": trees}), 400
 
-    print(best_trees, worst_trees, best_trees == worst_trees)
 
-    # 7. Retourner la liste triée
-    return jsonify({"best_trees": best_trees, "worst_trees": worst_trees}) if best_trees != worst_trees else jsonify({"best_trees": best_trees})
+    # Meilleur et pire score de distance
+    best_score = trees[0][1]
+    worst_score = trees[-1][1]
+
+    # Séparation des meilleurs et pires arbres
+    best_trees = [tree for tree in trees if tree[1] == best_score].to_dict(orient="records")
+    worst_trees = [tree for tree in trees if tree[1] == worst_score].to_dict(orient="records")
+
+    if best_trees != worst_trees:
+        return jsonify({"best_trees": best_trees, "worst_trees": worst_trees})
+    else:
+        return jsonify({"best_trees": best_trees})
 
 app.run()
