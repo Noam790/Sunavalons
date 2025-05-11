@@ -19,7 +19,7 @@ def api_get_trees():
     if isinstance(trees, str):
         return jsonify({"error": trees}), 400
 
-    return jsonify(trees.to_dict(orient="records"))
+    return jsonify(trees)
 
 @app.route("/api/city_trees")
 def api_city_trees():
@@ -59,8 +59,8 @@ def api_city_trees():
     worst_score = trees[-1][1]
 
     # Séparation des meilleurs et pires arbres
-    best_trees = [tree for tree in trees if tree[1] == best_score].to_dict(orient="records")
-    worst_trees = [tree for tree in trees if tree[1] == worst_score].to_dict(orient="records")
+    best_trees = [tree for tree in trees if tree[1] == best_score]
+    worst_trees = [tree for tree in trees if tree[1] == worst_score]
 
     if best_trees != worst_trees:
         return jsonify({"best_trees": best_trees, "worst_trees": worst_trees})
