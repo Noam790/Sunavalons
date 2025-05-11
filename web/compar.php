@@ -50,6 +50,7 @@ $ville = $result['ville'];
                 include 'components/tree_list.php';
             ?>
         <?php endif; ?>
+        <?php include 'components/redirect.php';?>
     </main>
 
     <?php include 'components/footer.php'; ?>

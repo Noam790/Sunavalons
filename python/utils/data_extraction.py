@@ -24,11 +24,9 @@ def get_coordinates(ville):
             lon = data[0]["lon"]
             return lat, lon
         else:
-            print(f"Aucune donnée trouvée pour {ville}")
-            return None
+            return None,None
     except requests.exceptions.RequestException as e:
-        print(f"Erreur lors de la requête pour {ville}: {e}")
-        return None
+        return None,None
 
 
 def get_precipitation(lat, lon):
@@ -97,7 +95,7 @@ def extract_data_for_city(ville):
     lat, lon = get_coordinates(ville)
 
     if lat is None or lon is None:
-        return {"error": "Ville introuvable"}
+        return None
     indicators = {}
 
     with ThreadPoolExecutor(max_workers=4) as executor: #  Paralléliser les appels API

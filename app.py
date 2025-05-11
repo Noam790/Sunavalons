@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 
 from python.utils.data_analysis import find_closest_trees, load_trees_data
 from python.utils.data_displaying import get_results
-from python.utils.data_extraction import extract_data_for_city
+from python.utils.data_extraction import extract_data_for_city, get_coordinates
 
 app = Flask(__name__)
 
@@ -19,7 +19,6 @@ def api_get_trees():
         return jsonify({"error": "Paramètres manquants"}), 400
 
     trees = get_results(city, nb_trees, tree_set)
-    print(trees)
 
     if isinstance(trees, str):  # Erreur retournée par get_results
         return jsonify({"error": trees}), 400
@@ -33,9 +32,13 @@ def api_city_trees():
         return jsonify({"error": "Paramètres manquants"}), 400
 
     # 1. Récupérer le climat de la ville
+    lat, lon = get_coordinates(city)  # Ajoute cette ligne
+    if lat is None or lon is None:
+        return jsonify({"error": "Ville introuvable"}), 400
+
     city_data = extract_data_for_city(city)
     if not city_data:
-        return jsonify({"error": "Climat de la ville introuvable"}), 400
+        return jsonify({"error": "Votre commune n'a pas fourni la liste de ses arbres."}), 400
 
     # 2. Charger les arbres de la ville
     city_trees = load_trees_data(city)

@@ -1,15 +1,24 @@
 <?php
 function call_flask_api($endpoint) {
-    $response = @file_get_contents($endpoint);
-    if ($response !== false) {
-        $data = json_decode($response, true);
-        if (isset($data["error"])) {
-            return ['error' => $data["error"]];
-        }
-        return ['data' => $data];
-    } else {
+    $ch = curl_init($endpoint);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FAILONERROR, false); // Important pour récupérer les erreurs 400
+    $response = curl_exec($ch);
+    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($response === false) {
         return ['error' => "Erreur lors de la communication avec le serveur Flask."];
     }
+
+    $data = json_decode($response, true);
+
+    // Si Flask a renvoyé une erreur dans le JSON
+    if (isset($data["error"])) {
+        return ['error' => $data["error"]];
+    }
+
+    return ['data' => $data];
 }
 
 function handle_form_submission() {
