@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 
-from python.utils.data_analysis import find_closest_trees, load_trees_data
+from python.utils.data_analysis import load_trees_data, match_city_trees_to_ref
 from python.utils.data_displaying import get_results
 from python.utils.data_extraction import extract_data_for_city, get_coordinates
 
@@ -40,6 +40,10 @@ def api_city_trees():
     city_trees = load_trees_data(city)
     if city_trees is None:
         return jsonify({"error": "Le csv de votre ville est introuvable"}), 400
+
+    # Trouver les arbres de base a partir de leurs sous domaines
+    city_trees['genre_francais'] = match_city_trees_to_ref(city_trees['genre_francais'], tree_set["genre_francais"])
+    print(city_trees['genre_francais'].unique())
 
     # Filtrer les arbres communs à la ville et notre reference
     filtered_trees = tree_set[tree_set["genre_francais"].isin(city_trees["genre_francais"])]

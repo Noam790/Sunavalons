@@ -37,6 +37,16 @@ def load_trees_data(city=None):
 
     return df
 
+# Chercher l'arbre global avec ses sous classes -> "Erable de ..." -> "Erable"
+def match_city_trees_to_ref(city_trees, ref_tree_names):
+    def find_ref_name(name):
+        for ref in ref_tree_names:
+            if name.lower().startswith(ref.lower()):
+                return ref
+        return name  # Sinon, on garde le nom original
+
+    return city_trees.apply(find_ref_name)
+
 
 def euclidean_distance(tree, city_data):
     return math.sqrt((tree["eau"] - city_data["eau"])**2 +
