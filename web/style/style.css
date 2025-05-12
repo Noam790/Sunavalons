@@ -15,6 +15,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    caret-color: transparent; /* Curseur qui clignotte */
+}
+
+input, textarea {
+    caret-color: auto; /* Le réactiver dans les input */
 }
 
 html, body {
@@ -27,6 +32,9 @@ body {
     background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
     color: var(--dark-color);
     line-height: 1.6;
+    background-attachment: fixed;
+    min-height: 100%;
+    height: 100%;
 }
 
 header {
@@ -48,16 +56,7 @@ header::before {
     height: 100%;
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23ffffff" fill-opacity="0.05" d="M50 0 L100 50 L50 100 L0 50 Z"/></svg>');
     background-size: 60px 60px;
-}
-
-/* Header principal */
-.main-header {
-    background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
-    color: white;
-    padding: 2rem 0 1rem 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    position: relative;
-    overflow: hidden;
+    z-index: 1;
 }
 
 .header-container {
@@ -87,6 +86,11 @@ header::before {
 }
 
 /* Navigation */
+nav {
+    position: relative;
+    z-index: 2;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -383,10 +387,65 @@ footer {
     font-size: 0.9rem;
 }
 
+
+/* Section À propos */
+.about-section {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.about-section h2 {
+    color: var(--primary-dark);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.member-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.member {
+    background: rgba(46, 204, 113, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+}
+
+.member:hover {
+    transform: translateY(-2px);
+    background: rgba(46, 204, 113, 0.15);
+}
+
+.member strong {
+    color: var(--primary-dark);
+    margin-right: 0.5rem;
+}
+
 @media (max-width: 768px) {
     .form-row {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .about-section {
+        padding: 0 1rem;
+    }
+
+    .about-content p {
+        font-size: 1rem;
+        line-height: 1.6;
     }
 
     label {

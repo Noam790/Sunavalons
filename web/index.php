@@ -23,9 +23,7 @@
         <section class="tree-container">
             <div class="tree-card">
                 <div class="tree-content tree-content--no-padding">
-                    <a href="plantator.php" class="tree-btn-link">
-                        <button class="tree-btn">Plantator</button>
-                    </a>
+                    <a href="plantator.php" class="tree-btn">Plantator</a>
                     <p>
                         Plantator est l'outil principal de Sunavalons.<br>
                         Il vous permet de trouver les arbres idéaux à planter dans votre ville.
@@ -34,9 +32,7 @@
             </div>
             <div class="tree-card">
                 <div class="tree-content tree-content--no-padding">
-                    <a href="comparator.php" class="tree-btn-link">
-                        <button class="tree-btn">Comparator</button>
-                    </a>
+                    <a href="comparator.php" class="tree-btn">Comparator</a>
                     <p>
                         Comparator permet de voir les meilleurs et pires arbres plantés dans votre commune.
                     </p>
@@ -44,9 +40,7 @@
             </div>
             <div class="tree-card">
                 <div class="tree-content tree-content--no-padding">
-                    <a href="statisticator.php" class="tree-btn-link">
-                        <button class="tree-btn">Statisticator</button>
-                    </a>
+                    <a href="statisticator.php" class="tree-btn">Statisticator</a>
                     <p>
                         Statisticator permet d'afficher les arbres et leurs caractéristiques sous forme de diagrammes.
                     </p>
