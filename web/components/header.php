@@ -1,5 +1,6 @@
-<header class="main-header">
-    <div class="container header-container">
+<header>
+    <div class="header-container">
+        <img src="assets/logo.png">
         <h1 class="header-title">Sunavalons</h1>
         <nav>
             <ul class="nav-links">

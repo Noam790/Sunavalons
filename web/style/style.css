@@ -62,7 +62,8 @@ header::before {
 .header-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start; /* Change space-between to flex-start */
+    gap: 2rem; /* Ajoute un espacement contrôlé entre les éléments */
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -76,6 +77,12 @@ header::before {
     letter-spacing: 2px;
 }
 
+.header-container img{
+    width : 200px;
+    height: 200px;
+    margin:0;
+}
+
 .header-logo-link {
     color: white;
     text-decoration: none;
@@ -87,6 +94,7 @@ header::before {
 
 /* Navigation */
 nav {
+    margin-left:auto;
     position: relative;
     z-index: 2;
 }
