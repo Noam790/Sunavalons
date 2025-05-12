@@ -1,57 +1,59 @@
-<?php
-require_once 'includes/tree_card.php';
-require_once 'includes/validate.php';
-require_once 'includes/logic.php';
-$trees = null;
-$error = null;
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $ville = urlencode($_POST["ville"]);
-    $nb_arbres = intval($_POST["nb_arbres"]);
-
-    if (!validate_ville($ville)) {
-        $error = "Nom de ville invalide.";
-    }
-
-    $url = "http://127.0.0.1:5000/api?ville=" . urlencode($ville) . "&nb_arbres=" . $nb_arbres;
-    $api_result = call_flask_api($url);
-    if (isset($api_result['error'])) {
-        $error = $api_result['error'];
-    } else {
-        $trees = $api_result['data'];
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Recommandation d'Arbres</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
+    <title>Sunavalons: Page principale</title>
 </head>
 <body>
     <?php include 'components/header.php'; ?>
-
     <main class="container">
-        <?php include 'components/forms/index_form.php'; ?>
-
-        <?php if ($error): ?>
-            <?php include 'components/error.php'; ?>
-        <?php elseif (is_array($trees)): ?>
-            <h2>Arbres recommandés pour <?= htmlspecialchars($_POST["ville"]) ?></h2>
-            <div class="tree-container">
-                <?php foreach ($trees as $tree_data): ?>
-                    <?= render_tree_card($tree_data, $image_path); ?>
-                <?php endforeach; ?>
+        <h1 class="main-title">Projet Sunavalon</h1>
+        <p>
+            Vous êtes vous déjà demandé quel arbre serait le mieux adapté pour votre ville ?
+            Et bien Sunavalons est le site qui vous permet de trouver les arbres idéaux à planter dans
+            les villes françaises.<br>
+            Grâce à l'étude de l'acidité des sols, le taux d'humidité des villes,
+            le temps d'exposition au soleil ainsi que les températures moyennes les plus basses enregistrées,
+            Sunavalons vous permet de trouver quel(s) arbre(s) serai(en)t parfait(s) pour votre ville.<br>
+            Mais ce n'est pas tout, Sunavalons possède d'autres outils qui vous seront peut-être utiles
+            si vous vous intéressez aux arbres, alors n'hésitez pas à les regarder.
+        </p>
+        <section class="tree-container">
+            <div class="tree-card">
+                <div class="tree-content tree-content--no-padding">
+                    <a href="plantator.php" class="tree-btn-link">
+                        <button class="tree-btn">Plantator</button>
+                    </a>
+                    <p>
+                        Plantator est l'outil principal de Sunavalons.<br>
+                        Il vous permet de trouver les arbres idéaux à planter dans votre ville.
+                    </p>
+                </div>
             </div>
-            <?php include 'components/eco_tips.php'; ?>
-        <?php endif; ?>
+            <div class="tree-card">
+                <div class="tree-content tree-content--no-padding">
+                    <a href="comparator.php" class="tree-btn-link">
+                        <button class="tree-btn">Comparator</button>
+                    </a>
+                    <p>
+                        Comparator permet de voir les meilleurs et pires arbres plantés dans votre commune.
+                    </p>
+                </div>
+            </div>
+            <div class="tree-card">
+                <div class="tree-content tree-content--no-padding">
+                    <a href="statisticator.php" class="tree-btn-link">
+                        <button class="tree-btn">Statisticator</button>
+                    </a>
+                    <p>
+                        Statisticator permet d'afficher les arbres et leurs caractéristiques sous forme de diagrammes.
+                    </p>
+                </div>
+            </div>
+    </section>
     </main>
-
     <?php include 'components/footer.php'; ?>
 </body>
 </html>

@@ -21,7 +21,7 @@ fi
 # Détecter le système d'exploitation
 OS_TYPE=$(uname)
 
-if [[ "$OS_TYPE" == "Linux" || "$OS_TYPE" == "Darwin" ]]; then
+if [[ "$OS_TYPE" == "Linux" ]]; then
     # Pour Linux ou MacOS
     echo "Lancement du serveur sur Linux/MacOS..."
     $PYTHON_CMD app.py & # arrière plan

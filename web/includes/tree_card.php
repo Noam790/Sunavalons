@@ -6,7 +6,7 @@ function render_tree_card(array $tree_data, string $image_path) {
     $fill_percent = intval($fill_ratio * 100);
     $tree_name = str_replace("_", " ", htmlspecialchars($tree_data[0]));
     $img = $image_path . htmlspecialchars($tree_data[0]) . ".jpg";
-    ?>
+    ;?>
     <div class="tree-card">
         <span class="eco-badge">
             <span class="eco-fill" style="width: <?= $fill_percent ?>%;"></span>
