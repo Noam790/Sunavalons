@@ -20,6 +20,17 @@ function call_flask_api($endpoint) {
     return ['data' => $data];
 }
 
+function get_csv_path($ville) {
+    $upload_dir = __DIR__ . "/../../data/";
+    $upload_name = "arbres_" . strtolower($ville) . ".csv";
+    return $upload_dir . $upload_name;
+}
+
+function has_csv_file($ville) {
+    if (!$ville) return false;
+    return file_exists(get_csv_path($ville));
+}
+
 function handle_form_submission() {
     require_once 'includes/validate.php';
     require_once 'includes/clean_data.php';
@@ -43,10 +54,7 @@ function handle_form_submission() {
 
     // Upload CSV
     if (isset($_FILES["csv_file"]) && $ville) {
-        $upload_dir = __DIR__ . "/../../data/";
-        $upload_name = "arbres_" . strtolower($ville) . ".csv";
-        $upload_path = $upload_dir . $upload_name;
-
+        $upload_path = get_csv_path($ville);
         $original_filename = $_FILES["csv_file"]["name"];
         $file_extension = strtolower(pathinfo($original_filename, PATHINFO_EXTENSION));
 
@@ -56,7 +64,7 @@ function handle_form_submission() {
         }
 
         // Suppression si existant
-        if (file_exists($upload_path)) {
+        if (has_csv_file($upload_path)) {
             unlink($upload_path);
         }
 

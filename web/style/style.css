@@ -40,7 +40,6 @@ body {
 header {
     background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
     color: white;
-    padding: 2rem 0;
     text-align: center;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     position: relative;
@@ -66,7 +65,7 @@ header::before {
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 0px;
 }
 
 .header-title {
@@ -78,8 +77,8 @@ header::before {
 }
 
 .header-container img{
-    width : 200px;
-    height: 200px;
+    width : 120px;
+    height: 120px;
     margin:0;
 }
 
