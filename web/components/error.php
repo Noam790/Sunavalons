@@ -3,9 +3,12 @@
     <?php
     if (
         isset($error, $ville)
-        && ($error === "Votre commune n'a pas fourni la liste de ses arbres."
-            || $error === "Le csv de votre ville est introuvable")
         && !empty($ville)
+        && (
+            $error === "Votre commune n'a pas fourni la liste de ses arbres."
+            || $error === "Le csv de votre ville est introuvable"
+            || $error === "Erreur lors de la mise à jour du fichier."
+        )
     ) {
         include 'components/upload_ville.php';
     }

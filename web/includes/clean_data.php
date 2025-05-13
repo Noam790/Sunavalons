@@ -28,8 +28,6 @@ function process_csv_file($tmp_file, $target_file) {
         // Écrit l'en-tête
         fputcsv($output, ["genre_francais"]);
 
-        $header = fgetcsv($handle);
-
         while (($data = fgetcsv($handle)) !== FALSE) {
             if (!empty($data[0])) {
                 $clean_name = clean_tree_name($data[0]); // Nettoie

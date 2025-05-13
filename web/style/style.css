@@ -62,8 +62,8 @@ header::before {
 .header-container {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Change space-between to flex-start */
-    gap: 2rem; /* Ajoute un espacement contrôlé entre les éléments */
+    justify-content: flex-start;
+    gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -181,24 +181,43 @@ h3 {
 
 .form-row {
     display: flex;
-    gap: 1rem;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    justify-content:center;
+    align-items: center;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
     margin-bottom: 1.5rem;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 label {
     font-weight: 500;
-    min-width: 150px;
+    min-width: 100px;
     color: var(--dark-color);
 }
 
-input {
-    flex: 1;
+div > input {
+    min-width: 360px;
     padding: 0.8rem;
     border: 1px solid #ddd;
     border-radius: 6px;
     font-size: 1rem;
+    text-align: left;
     transition: border 0.3s ease;
+}
+
+input{
+    width:40px;
+    font-size:1em;
+    padding:0;
+    text-align:center;
+    margin:0;
+    line-height:1;
 }
 
 input:focus {

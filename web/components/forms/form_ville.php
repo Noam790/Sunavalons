@@ -2,6 +2,12 @@
     <div class="form-row">
         <label for="ville">Ville :</label>
         <input type="text" id="ville" name="ville" required placeholder="Ex: Paris, Lyon, Bordeaux...">
+        <input type="hidden" name="redirect" value="comparator.php">
     </div>
-    <button type="submit">Analyser</button>
+    <div class="form-buttons">
+        <button type="submit">Analyser</button>
+        <?php if (isset($ville) && validate_ville($ville)): ?>
+            <button><a href="upload.php?ville=<?= urlencode($ville) ?>" class="header-logo-link">Mettre à jour</a></button>
+        <?php endif; ?>
+    </div>
 </form>

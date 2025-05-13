@@ -4,7 +4,6 @@ function call_flask_api($endpoint) {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_FAILONERROR, false); // Important pour récupérer les erreurs 400
     $response = curl_exec($ch);
-    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
 
     if ($response === false) {
@@ -45,25 +44,29 @@ function handle_form_submission() {
     // Upload CSV
     if (isset($_FILES["csv_file"]) && $ville) {
         $upload_dir = __DIR__ . "/../../data/";
+        $upload_name = "arbres_" . strtolower($ville) . ".csv";
+        $upload_path = $upload_dir . $upload_name;
 
         $original_filename = $_FILES["csv_file"]["name"];
         $file_extension = strtolower(pathinfo($original_filename, PATHINFO_EXTENSION));
-        $allowed_extensions = ['csv', 'ods', 'xlsx'];
-        if (!in_array($file_extension, $allowed_extensions)) {
+
+        if (!in_array($file_extension, ['csv', 'ods', 'xlsx'])) {
             $result['error'] = "Format de fichier non supporté. Seuls les fichiers CSV, ODS ou XLSX sont acceptés.";
+            return $result;
+        }
+
+        // Suppression si existant
+        if (file_exists($upload_path)) {
+            unlink($upload_path);
+        }
+
+        // Traitement / Sauvegarde
+        if (process_csv_file($_FILES["csv_file"]["tmp_name"], $upload_path)) {
+            $result['success'] = "Le fichier a été mis à jour avec succès !";
+            header('Location: ../comparator.php');
+            exit;
         } else {
-            $upload_name = "arbres_" . strtolower($ville) . ".csv"; // Toujours .csv après nettoyage
-            $upload_path = $upload_dir . $upload_name;
-
-            // Fichier temporaire pour l'upload
-            $tmp_file = $_FILES["csv_file"]["tmp_name"];
-
-            // Nettoie et convertit le fichier avant de l'enregistrer
-            if (process_csv_file($tmp_file, $upload_path)) {
-                $result['success'] = "Le fichier a bien été envoyé, nettoyé et enregistré ! Vous pouvez relancer l'analyse.";
-            } else {
-                $result['error'] = "Erreur lors du traitement ou de l'enregistrement du fichier.";
-            }
+            $result['error'] = "Erreur lors de la mise à jour du fichier.";
         }
         return $result;
     }
