@@ -10,7 +10,6 @@
     <title>Sunavalons: Page principale</title>
 </head>
 <body>
-    <?php include 'components/header.php'; ?>
     <main class="container">
         <h1 class="main-title">Projet Sunavalons</h1>
         <p>
@@ -51,6 +50,5 @@
             </div>
     </section>
     </main>
-    <?php include 'components/footer.php'; ?>
 </body>
 </html>

@@ -7,16 +7,18 @@ function render_tree_card(array $tree_data, string $image_path) {
     $tree_name = str_replace("_", " ", htmlspecialchars($tree_data[0]));
     $img = $image_path . htmlspecialchars($tree_data[0]) . ".jpg";
     ;?>
-    <div class="tree-card">
+    <div class="card-plantator">
         <span class="eco-badge">
             <span class="eco-fill" style="width: <?= $fill_percent ?>%;"></span>
             <span class="eco-text">Score éco-compatible</span>
         </span>
-        <img src="<?= $img ?>" class="tree-image">
+        
+        <img src="<?= $img ?>" class="card-picture-plantator">
         <div class="tree-content">
-            <h3 class="tree-name"><?= $tree_name ?></h3>
+            <h3 class="card-plantator-title"><?= $tree_name ?></h3>
         </div>
     </div>
+    
     <?php
 }
 ?>

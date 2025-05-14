@@ -34,16 +34,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <?php include 'components/header.php'; ?>
+
 
     <main class="container">
-        <?php include 'components/forms/index_form.php'; ?>
+        <h1>Plantator</h1>
+        <p>
+        Plantator est l'outil principal du projet Sunavalons et constituait le 
+        MVP du projet. Cet outil vous permet de trouver quel arbre serait le 
+        mieux pour votre ville. <br>
+        Pour ce faire, remplissez simplement le petit 
+        formulaire avec le nom de votre ville ainsi qu'avec le nombre de variétés 
+        d'arbres que vous souhaiteriez planter.
+
+        </p>
+        <?php include 'components/forms/plantator_form.php'; ?>
 
         <?php if ($error): ?>
             <?php include 'components/error.php'; ?>
         <?php elseif (is_array($trees)): ?>
             <h2>Arbres recommandés pour <?= htmlspecialchars($_POST["ville"]) ?></h2>
-            <div class="tree-container">
+            <div class="card-table-plantator">
                 <?php foreach ($trees as $tree_data): ?>
                     <?= render_tree_card($tree_data, $image_path); ?>
                 <?php endforeach; ?>
@@ -52,6 +62,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <?php endif; ?>
     </main>
 
-    <?php include 'components/footer.php'; ?>
+    
 </body>
 </html>

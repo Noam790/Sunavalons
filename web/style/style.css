@@ -5,254 +5,141 @@
     --dark-color: #2c3e50;
     --light-color: #ecf0f1;
     --gray-color: #95a5a6;
+    --background-color: #e8ecf1:
     --error-color: #e74c3c;
     --success-color: #2ecc71;
     --card-shadow: 0 10px 20px rgba(0,0,0,0.1);
     --hover-transform: translateY(-5px);
 }
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    caret-color: transparent; /* Curseur qui clignotte */
-}
-
-input, textarea {
-    caret-color: auto; /* Le réactiver dans les input */
-}
-
-html, body {
-    height: 100%;
-    min-height: 100vh;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+    background-color: var(--background-color);
     color: var(--dark-color);
     line-height: 1.6;
-    background-attachment: fixed;
-    min-height: 100%;
-    height: 100%;
-}
-
-header {
-    background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
-    color: white;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     position: relative;
-    overflow: hidden;
-}
-
-header::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23ffffff" fill-opacity="0.05" d="M50 0 L100 50 L50 100 L0 50 Z"/></svg>');
-    background-size: 60px 60px;
-    z-index: 1;
-}
-
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 0px;
-}
-
-.header-title {
-    margin: 0;
-    font-size: 2.2rem;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-.header-container img{
-    width : 120px;
-    height: 120px;
-    margin:0;
-}
-
-.header-logo-link {
-    color: white;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-.header-logo-link:hover {
-    color: var(--light-color);
-}
-
-/* Navigation */
-nav {
-    margin-left:auto;
-    position: relative;
-    z-index: 2;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-link {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 500;
-    padding: 0.5rem 1.2rem;
-    border-radius: 5px;
-    transition: background 0.2s, color 0.2s;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-    background: var(--primary-dark);
-    color: var(--light-color);
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-h1, h2, h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-}
-
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.main-title {
-    font-size: 3rem;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    color: var(--primary-dark);
-    background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
-    background-clip: text;
-    text-align: center;
-    margin-bottom: 2rem;
-    letter-spacing: 2px;
-    text-shadow: 0 4px 16px rgba(46, 204, 113, 0.08);
-}
-
-h2 {
-    font-size: 2rem;
-    margin: 2rem 0;
-    color: var(--primary-dark);
-    text-align: center;
-}
-
-h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.8rem;
-    color: var(--dark-color);
-}
-
-
-/* Form Styling */
-.search-form {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: var(--card-shadow);
-    margin: 2rem auto;
-    max-width: 600px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-.form-row {
+main {
+    flex: 1;
+    padding: 2rem;
     display: flex;
-    gap: 10px;
-    margin-bottom: 1.5rem;
-    justify-content:center;
-    align-items: center;
-}
-
-.form-buttons {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 1.5rem;
-    align-items: center;
     justify-content: space-evenly;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-label {
-    font-weight: 500;
-    min-width: 100px;
-    color: var(--dark-color);
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
-div > input {
-    min-width: 360px;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+p {
     font-size: 1rem;
-    text-align: left;
-    transition: border 0.3s ease;
+    margin: 1rem ;
+    text-align: justify;
 }
 
-input{
-    width:40px;
-    font-size:1em;
-    padding:0;
-    text-align:center;
-    margin:0;
-    line-height:1;
+a.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: var(--primary-color, #007BFF);
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-width: 120px;
+    min-height: 40px; 
+    line-height: 1.5; 
+    white-space: nowrap; 
 }
 
-input:focus {
-    border-color: var(--accent-color);
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+a.btn:hover {
+    background-color: var(--primary-hover-color, #0056b3);
 }
 
-button {
-    background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+main button, main p {
+    display: block; 
+    margin: 1rem auto; 
+    text-align: center;
+}
+
+.ligne {
+    flex: 1 1 calc(33.33% - 2rem);
+    display: inline-flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem; 
+    padding: 1rem; 
+    border: 1px solid #ccc;
+    border-radius: 8px; 
+    background-color: #f9f9f9; 
+    margin: 0.5rem; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.ligne p {
+    padding: 0.5rem; 
+    margin: 0; 
+    font-size: 1rem;
+    color: #333;
+}
+
+.ligne button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: var(--primary-color, #007BFF);
     color: white;
     border: none;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 500;
-    border-radius: 6px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    display: block;
-    margin: 0 auto;
-    min-width: 200px;
+    transition: background-color 0.3s ease;
 }
 
+section.liste{
+    margin:1rem auto; 
+}
 
-/* Tree Cards */
-.tree-container {
+section.liste h2{
+    text-align: center;
+    font-weight: bold;
+    
+}
+
+section.liste ul{
+    text-align: center;
+    font-style: italic;
+}
+
+/*
+    -- Affichage arbres plantator --
+*/
+
+.card-table-plantator{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
     gap: 2rem;
-    margin: 2rem 0;
+    margin: 2rem auto;
 }
 
-.tree-card {
-    justify-content: center;
-    align-items:center;
-    background: white;
+.card-plantator{
+    background: #86af49;
+    color: #e3eaa7;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--card-shadow);
@@ -260,140 +147,132 @@ button {
     position: relative;
 }
 
-.tree-card:hover {
+.card-plantator:hover{
     transform: var(--hover-transform);
     box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-.tree-image {
+.card-plantator img{
     width: 100%;
-    height: 200px;
+    height: 300px;
     object-fit: cover;
-    border-bottom: 3px solid var(--primary-color);
+    
 }
 
-.tree-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem;
+.card-plantator h3{
+    font-size: 1.5rem;
+    text-align: justify;
+    padding:1rem;
 }
 
-.tree-content--no-padding {
-    padding: 0;
+/*
+    -- Formulaire plantator --
+*/
+
+form.selection-plantator{
+    margin: auto;
+    padding:1rem;
+    border-radius: 1rem;
+    
+    background-color: var(--primary-color);
+  }
+
+section.input-boxes-plantator{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
 }
 
-.tree-content p {
-    margin-top: 1rem;
-    padding: 0 1rem 1rem 1rem;
+section.input-box-plantator{
+    padding: 0.5rem;
+    justify-self: center;
+    place-self: top;
+    
+}
+section.input-box-plantator input{
+  width: 100%;
+  margin: 0.5rem 0;
+}
+section.input-box-plantator label{
+  margin-bottom: 0.5rem;
+  color:#e3eaa7;
 }
 
-.tree-content a{
-    text-decoration: none;
-    margin: 0;
+section.validation-box-plantator{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  margin-top: 0.5rem;
 }
 
-.tree-name {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-    color: var(--dark-color);
+input.validation-button-plantator{
+  grid-column: 2;
+  max-width: 500px;
+  
+  padding:0.3rem 0.7rem;  
+  justify-self: center;
+
 }
 
-/* Bouton lien dans les tree-card */
-.tree-btn-link {
-    display: block;
-    width: 100%;
-    text-decoration: none;
-    margin: 0;
-    padding: 0;
+/*
+    -- Responsive --
+*/
+@media (min-width: 768px) {
+    h1{
+        font-size: 4rem;
+    }
+    .intro{
+        font-size: 1.2rem;
+        text-align: justify;
+        max-width: 80%;
+    }
+    form.selection-plantator{
+        max-width: 80%;
+    }
+    section.card-table-plantator{
+        max-width: 80%;
+    }
+    
 }
 
-.tree-btn {
-    margin: 0;
-    margin-bottom: 0.5rem;
-    padding: 0.8rem 0rem;
-    background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: 500;
-    font-size: 1rem;
-    cursor: pointer;
-    display: block;
-    text-align: center;
-    box-sizing: border-box;
-    width:100%;
+.card-plantator-title{
+    flex: 1 ;
+    display: flex ;
+    justify-content: space-between
 }
-
-.tree-btn:hover {
-    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
-    background: var(--primary-dark);
-}
-
-.eco-badge {
+.jauge {
+    margin: 5px ;
     position: relative;
-    display: inline-block;
+    width: 80px;
+    height: 48px;
+    background: conic-gradient(at 50% 100%, yellow, green, red, yellow);
+    border-radius: 100px 100px 0 0;
     overflow: hidden;
-    color: black;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    background: #e0e0e0;
+    border: black solid 2px ;
 }
 
-.eco-badge .eco-fill {
+.aiguille {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background: var(--primary-color);
-    z-index: 1;
-    transition: width 0.3s ease-in-out;
-    border-radius: 20px;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    height: 80%;
+    background: black;
+    transform-origin: bottom;
+    transform: rotate(-90deg);
 }
 
-.eco-badge .eco-text {
-    position: relative;
-    z-index: 2;
+.point {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 50%;
+    transform: translate(-50%, 50%);
 }
 
-.eco-tips {
-    background: white;
-    border-radius: 12px;
-    padding: 2rem;
-    margin: 3rem auto;
-    box-shadow: var(--card-shadow);
-    max-width: 800px;
-}
-
-.eco-tips h3 {
-    color: var(--primary-dark);
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-.tips-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.tip-card {
-    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
-    padding: 1.2rem;
-    border-radius: 8px;
-    border-left: 4px solid var(--primary-color);
-}
-
-.tip-title {
-    font-weight: 500;
-    color: var(--primary-dark);
-    margin-bottom: 0.5rem;
-}
-
-/* Error Message */
 .error {
     background: rgba(231, 76, 60, 0.1);
     color: var(--error-color);
@@ -403,82 +282,4 @@ button {
     margin: 1rem auto;
     max-width: 600px;
     border-left: 4px solid var(--error-color);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 2rem;
-    color: var(--gray-color);
-    font-size: 0.9rem;
-}
-
-
-/* Section À propos */
-.about-section {
-    max-width: 800px;
-    margin: 0 auto 3rem;
-}
-
-.about-section h2 {
-    color: var(--primary-dark);
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-align: left;
-}
-
-.about-content p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-}
-
-.member-list {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-}
-
-.member {
-    background: rgba(46, 204, 113, 0.1);
-    padding: 1rem;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    transition: transform 0.2s ease;
-}
-
-.member:hover {
-    transform: translateY(-2px);
-    background: rgba(46, 204, 113, 0.15);
-}
-
-.member strong {
-    color: var(--primary-dark);
-    margin-right: 0.5rem;
-}
-
-@media (max-width: 768px) {
-    .form-row {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .about-section {
-        padding: 0 1rem;
-    }
-
-    .about-content p {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-
-    label {
-        margin-bottom: 0.5rem;
-    }
-
-    .tree-container {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    }
 }
