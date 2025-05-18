@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Recommandation d'Arbres</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
@@ -47,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         d'arbres que vous souhaiteriez planter.
 
         </p>
+        
         <?php include 'components/forms/plantator_form.php'; ?>
 
         <?php if ($error): ?>
@@ -60,6 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
             <?php include 'components/eco_tips.php'; ?>
         <?php endif; ?>
+                
     </main>
 
     

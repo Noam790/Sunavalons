@@ -24,7 +24,6 @@ $ville = $result['ville'];
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    <?php include 'components/header.php'; ?>
 
     <main class="container">
         <?php include 'components/forms/form_ville.php'; ?>
@@ -53,6 +52,6 @@ $ville = $result['ville'];
         <?php endif; ?>
     </main>
 
-    <?php include 'components/footer.php'; ?>
+    
 </body>
 </html>

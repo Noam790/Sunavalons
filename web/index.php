@@ -11,7 +11,7 @@
 </head>
 <body>
     <main class="container">
-        <h1 class="main-title">Projet Sunavalons</h1>
+        <h1>Projet Sunavalons</h1>
         <p>
             Vous êtes vous déjà demandé quel arbre serait le mieux adapté pour votre ville ?
             Et bien Sunavalons est le site qui vous permet de trouver les arbres idéaux à planter dans

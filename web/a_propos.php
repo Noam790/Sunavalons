@@ -10,13 +10,12 @@
     <title>À propos - Sunavalons</title>
 </head>
 <body>
-    <?php include "components/header.php";?>
     <main class="container">
-        <h1 class="main-title">À propos</h1>
+        <h1>À propos</h1>
 
-        <section class="about-section">
+        <section>
             <h2>Notre projet</h2>
-            <div class="about-content">
+            <div>
                 <p>
                     Le projet Sunavalons est le fruit du travail d'un groupe de six étudiants de La Rochelle Université travaillant
                     ensemble dans le cadre de leur licence en "Projets transversaux appliqués au développement
@@ -35,7 +34,7 @@
             </div>
         </section>
 
-        <section class="about-section">
+        <section>
             <h2>Membres du projet</h2>
             <ul class="member-list">
                 <li class="member"><strong>SALL</strong> Fatoumata</li>
@@ -47,6 +46,5 @@
             </ul>
         </section>
     </main>
-    <?php include 'components/footer.php'; ?>
 </body>
 </html>
