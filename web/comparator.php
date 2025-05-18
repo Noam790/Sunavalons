@@ -18,38 +18,42 @@ $ville = $result['ville'];
 <head>
     <meta charset="UTF-8">
     <title>Recommandation d'Arbres</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/styleComparator.css">
 </head>
 <body>
 
     <main class="container">
-        <?php include 'components/forms/form_ville.php'; ?>
+        <section class="force-column">
+            <?php include 'components/forms/form_ville.php'; ?>
 
-        <?php if ($error): ?>
-            <?php include 'components/error.php'; ?>
-        <?php elseif ($success): ?>
-            <?php include 'components/success.php'; ?>
-        <?php endif; ?>
+            <?php if ($error): ?>
+                <?php include 'components/error.php'; ?>
+            <?php elseif ($success): ?>
+                <?php include 'components/success.php'; ?>
+            <?php endif; ?>
 
-        <?php if ($best_trees && $ville): ?>
-            <?php
-                $title = "Arbres les mieux adaptés présents dans la ville de " . htmlspecialchars($ville);
-                $trees = $best_trees;
-                include 'components/tree_list.php';
-            ?>
-        <?php endif; ?>
+            <?php if ($best_trees && $ville): ?>
+                <?php
+                    $title = "Arbres les mieux adaptés présents dans la ville de " . htmlspecialchars($ville);
+                    $trees = $best_trees;
+                    include 'components/tree_list.php';
+                ?>
+            <?php endif; ?>
 
-        <?php if ($worst_trees): ?>
-            <?php
-                $title = "Arbres les moins adaptés";
-                $trees = $worst_trees;
-                include 'components/tree_list.php';
-                include 'components/redirect.php';
-            ?>
-        <?php endif; ?>
+            <?php if ($worst_trees): ?>
+                <?php
+                    $title = "Arbres les moins adaptés";
+                    $trees = $worst_trees;
+                    include 'components/tree_list.php';
+                    include 'components/redirect.php';
+                ?>
+            <?php endif; ?>
+        </section>
     </main>
 
     

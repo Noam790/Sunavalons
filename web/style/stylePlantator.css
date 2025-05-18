@@ -1,0 +1,132 @@
+
+/*
+    -- Plantator formulaire--
+*/
+form.selection-plantator{
+    margin: auto;
+    padding:1rem;
+    border-radius: 1rem;
+    
+    background-color: var(--primary-color);
+  }
+
+section.input-boxes-plantator{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+section.input-box-plantator{
+    padding: 0.5rem;
+    justify-self: center;
+    place-self: top;
+    
+}
+section.input-box-plantator input{
+  width: 100%;
+  margin: 0.5rem 0;
+}
+section.input-box-plantator label{
+  margin-bottom: 0.5rem;
+  color:#e3eaa7;
+}
+
+section.validation-box-plantator{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  margin-top: 0.5rem;
+}
+
+input.validation-button-plantator{
+  grid-column: 2;
+  max-width: 500px;
+  
+  padding:0.3rem 0.7rem;  
+  justify-self: center;
+
+}
+
+
+/*
+    -- Plantator affichage arbres
+*/
+.card-table-plantator{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+    gap: 2rem;
+    margin: 2rem auto;
+}
+
+.card-plantator{
+    background: var(--primary-color);
+    color: var(--light-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    box-shadow: var(--card-shadow);
+}
+
+.card-plantator:hover{
+    transform: var(--hover-transform);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card-plantator img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    
+}
+
+.card-plantator h3{
+    font-size: 1.5rem;
+    text-align: justify;
+    padding:1rem;
+}
+
+.card-plantator-title{
+    flex: 1 ;
+    display: flex ;
+    justify-content: space-between
+}
+
+/*
+    -- Plantator eco tips
+*/
+.eco-tips {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 3rem auto;
+    box-shadow: var(--card-shadow);
+    max-width: 800px;
+}
+
+.eco-tips h3 {
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.tips-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.tip-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+    padding: 1.2rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.tip-title {
+    font-weight: 500;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+}
