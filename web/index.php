@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="style/styleHeaderFooter.css">
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/styleIndex.css">
 
     <title>Sunavalons: Page principale</title>
 </head>
