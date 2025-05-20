@@ -15,15 +15,17 @@
     --hover-transform: translateY(-5px);
     
 }
+
 html{
     font-size: 18px;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-html{ font-size: 18px;}
+
 body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--light-color);
@@ -92,6 +94,7 @@ a.btn:hover {
 input{
     font-size: 1rem;
 }
+
 button{
     font-size: 1rem;
 }

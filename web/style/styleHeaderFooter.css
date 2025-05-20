@@ -38,7 +38,7 @@ header::before {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    padding: 0 2rem;
+    padding: 0 1rem;
     z-index: 1; 
 }
 
@@ -49,13 +49,13 @@ header::before {
 }
 
 .logoHeader {
-    width: 100px; 
+    width: 80px; 
     height: auto;
 }
 
 .titre {
     margin-top: 1rem;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: white;
 }
@@ -63,7 +63,7 @@ header::before {
 .titre a {
     text-decoration: none; 
     color: white; 
-    /*font-size: inherit;*/
+    font-size: inherit;
 }
 
 .nav-links {
@@ -80,7 +80,7 @@ header::before {
 .nav-links li a {
     text-decoration: none;
     color: white;
-    font-size: 1rem;
+    font-size: 0.8rem;
     transition: color 0.3s ease;
 }
 
