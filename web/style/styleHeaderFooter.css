@@ -37,17 +37,24 @@ header::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
     position: relative;
+    padding: 0 2rem;
     z-index: 1; 
 }
 
-.logoHeader{
-    width: 50px; 
+.logoTitre {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logoHeader {
+    width: 100px; 
     height: auto;
 }
 
 .titre {
+    margin-top: 1rem;
     font-size: 1.8rem;
     font-weight: bold;
     color: white;
@@ -56,7 +63,7 @@ header::before {
 .titre a {
     text-decoration: none; 
     color: white; 
-    font-size: inherit;
+    /*font-size: inherit;*/
 }
 
 .nav-links {
@@ -68,22 +75,6 @@ header::before {
     margin: 0;
     padding: 0;
     z-index: 1; 
-}
-
-@media (min-width: 768px) {
-    header{
-        padding: 2rem 0; 
-    }
-
-    .nav-links {
-        flex-direction: row; 
-        align-items: center; 
-        gap: 2rem; 
-    }
-
-    .logoHeader{
-        width: 80px; 
-    }
 }
 
 .nav-links li a {
@@ -142,7 +133,19 @@ footer {
     height: auto;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
+    header{
+        padding: 2rem 0; 
+    }
+
+    .nav-links {
+        flex-direction: row; 
+        align-items: center; 
+        gap: 2rem; 
+    }
+}
+
+/*@media (max-width: 768px) {
     footer {
         padding: 0.5rem 0; 
     }
@@ -166,4 +169,4 @@ footer {
     .footer-image {
         width: 80px; 
     }
-}
+}*/
