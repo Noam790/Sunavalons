@@ -161,30 +161,21 @@ footer {
     footer{
         padding: 1rem 0;
     }
-}
-
-/*@media (max-width: 768px) {
-    footer {
-        padding: 0.5rem 0; 
-    }
 
     .footer-container {
-        padding: 0 0.5rem;
-        align-items: center; 
-        gap: 0.5rem; 
+        padding: 0 2rem;
     }
 
     .footer-text {
-        max-width: 150px; 
-        font-size: 0.9rem; 
-        text-align: center; 
+        max-width: none; 
+        font-size: 1rem; 
     }
 
     .footer-link {
-        font-size: 0.9rem; 
+        font-size: 1rem; 
     }
 
     .footer-image {
-        width: 80px; 
+        width: 100px; 
     }
-}*/
+}
