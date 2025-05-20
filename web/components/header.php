@@ -5,8 +5,8 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="plantator.php">Plantator</a></li>
-                <li><a href="">Outil 2</a></li>
-                <li><a href="">Outil 3</a></li>
+                <li><a href="comparator.php">Comparator</a></li>
+                <li><a href="statisticator.php">Statisticator</a></li>
             </ul>
         </nav>
     </div>
