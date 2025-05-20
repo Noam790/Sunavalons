@@ -42,6 +42,11 @@ header::before {
     z-index: 1; 
 }
 
+.logoHeader{
+    width: 50px; /* Ajustez la taille selon vos besoins */
+    height: auto;
+}
+
 .titre {
     font-size: 1.8rem;
     font-weight: bold;

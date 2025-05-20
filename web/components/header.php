@@ -1,6 +1,6 @@
 <header>
     <div class="header-container">
-        <img src="assets/logo.png">
+        <img class="logoHeader" src="assets/logo.png">
         <h1 class="titre"><a href="index.php">Sunavalons</a></h1>
         <nav>
             <ul class="nav-links">
