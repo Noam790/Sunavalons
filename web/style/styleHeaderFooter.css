@@ -135,13 +135,25 @@ footer {
 
 @media (min-width: 768px) {
     header{
-        padding: 2rem 0; 
+        padding: 1rem; 
+    }
+
+    .logoHeader {
+        width: 120px; 
+    }
+
+    .logoTitre {
+        gap: 1rem; 
     }
 
     .nav-links {
         flex-direction: row; 
         align-items: center; 
-        gap: 2rem; 
+        gap: 1.5rem; 
+    }
+
+    .nav-links li a {
+        font-size: 1rem; 
     }
 }
 
