@@ -27,17 +27,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Recommandation d'Arbres</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommandation d'Arbres</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/styleHeaderFooter.css">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/stylePlantator.css">
 </head>
 <body>
-
-
+    <?php include 'components/header.php'; ?>
     <main class="container">
         <h1>Plantator</h1>
         <p>
@@ -47,7 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         Pour ce faire, remplissez simplement le petit 
         formulaire avec le nom de votre ville ainsi qu'avec le nombre de variétés 
         d'arbres que vous souhaiteriez planter.
-
         </p>
         
         <?php include 'components/forms/plantator_form.php'; ?>
@@ -63,9 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
             <?php include 'components/eco_tips.php'; ?>
         <?php endif; ?>
-                
     </main>
-
-    
+    <?php include 'components/footer.php'; ?>
 </body>
 </html>
