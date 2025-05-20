@@ -6,7 +6,7 @@ form.selection-plantator{
     margin: auto;
     padding:1rem;
     border-radius: 1rem;
-    
+    margin:2rem 0;
     background-color: var(--primary-color);
   }
 
@@ -14,6 +14,7 @@ section.input-boxes-plantator{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
+  
 }
 
 section.input-box-plantator{
@@ -25,6 +26,7 @@ section.input-box-plantator{
 section.input-box-plantator input{
   width: 100%;
   margin: 0.5rem 0;
+  font-size: 1rem;
 }
 section.input-box-plantator label{
   margin-bottom: 0.5rem;
@@ -41,10 +43,8 @@ section.validation-box-plantator{
 input.validation-button-plantator{
   grid-column: 2;
   max-width: 500px;
-  
   padding:0.3rem 0.7rem;  
   justify-self: center;
-
 }
 
 
