@@ -40,7 +40,11 @@
     padding: 1rem;
 }
 
-
+.main-title{
+    font-size: 2rem;
+    margin: 3rem auto;
+    margin-bottom: 2rem;
+}
 .info-cards-table{
     display: grid;
     gap:1rem;

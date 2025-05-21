@@ -1,7 +1,7 @@
 <form class="selection-plantator" method="post" id="plantator">
             <section class="input-boxes-plantator">
                 <section class="input-box-plantator" id="ville">
-                    <label for="ville">Choisissez une ville: </label>
+                    <label for="ville">Entrez une ville: </label>
                     <input type="text" name="ville" required placeholder="Ex: Paris, Lyon, Bordeaux..."/>
                 </section>
                 <section class="input-box-plantator" id="nb">

@@ -17,7 +17,7 @@ $ville = $result['ville'];
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Recommandation d'Arbres</title>
+    <title>Comparator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,8 +29,8 @@ $ville = $result['ville'];
 <body>
     <?php include 'components/header.php'; ?>
     <main class="container">
-        <section class="force-column">
-            <?php include 'components/forms/form_ville.php'; ?>
+        <section class="comparator">
+            <?php include 'components/forms/comparator_form.php'; ?>
 
             <?php if ($error): ?>
                 <?php include 'components/error.php'; ?>

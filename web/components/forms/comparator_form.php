@@ -1,8 +1,7 @@
 <form method="post" class="search-form">
     <div class="form-row">
-        <label for="ville">Ville :</label>
+        <label for="ville">Entrez une ville:</label>
         <input type="text" id="ville" name="ville" required placeholder="Ex: Paris, Lyon, Bordeaux...">
-        <input type="hidden" name="redirect" value="comparator.php">
     </div>
     <div class="form-buttons">
         <button type="submit">Analyser</button>

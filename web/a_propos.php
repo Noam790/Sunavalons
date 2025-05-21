@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style/styleHeaderFooter.css">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/styleApropos.css">
-    <title>À propos - Sunavalons</title>
+    <title>À propos</title>
 </head>
 <body>
     <?php include 'components/header.php'; ?>

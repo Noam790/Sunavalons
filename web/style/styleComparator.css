@@ -1,30 +1,145 @@
-.search-form {
-    background: white;
-    padding: 2rem;
+.comparator{
+    display: flex;
+    flex-direction: column;
+}
+
+form.search-form{
+    margin: auto;
+    padding:1rem;
+    border-radius: 1rem;
+    margin:2rem 0;
+    background-color: var(--primary-color);
+  }
+
+.form-row{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    align-content: center;
+    gap:0.5rem;
+}
+
+.form-row input{
+    font-size: 1rem;
+    padding: 0.2rem;
+}
+
+.form-row label{
+    margin-bottom: 0.5rem;  
+    color:var(--light-color);
+}
+
+.form-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0.5rem;
+    gap:3rem;
+}
+
+.form-buttons button{
+    padding: 0.3rem 0.3rem;
+    font-size: 0.8rem;
+    color: black;
+}
+
+.form-buttons a{
+    text-decoration: none;
+    color: black;
+    
+}
+
+.redirect-plantator{
+    display: flex;
+    align-content: center;
+}
+
+.redirect-plantator button{
+    margin: 1.5rem auto;
+    
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+}
+.redirect-plantator input{
+    font-size: 1rem;
+}
+
+
+.card-table-plantator{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.card-plantator{
+    background: var(--primary-color);
+    color: var(--light-color);
     border-radius: 12px;
+    overflow: hidden;
     box-shadow: var(--card-shadow);
-    margin: 2rem auto;
-    max-width: 600px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    box-shadow: var(--card-shadow);
     display: flex;
     flex-direction: column;
-}
-
-.form-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 1.5rem;
-    justify-content:center;
     align-items: center;
 }
 
-.form-buttons {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 1.5rem;
-    align-items: center;
-    justify-content: space-evenly;
+.card-table-plantator a{
+    text-decoration: none;
+    justify-self: stretch;
 }
-.force-column{
-    display: flex;
-    flex-direction: column;
+
+.card-plantator:hover{
+    transform: var(--hover-transform);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card-plantator img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    
+}
+
+.card-plantator .tree-content{
+    height: auto;
+}
+
+.card-plantator h3{
+    font-size: 1.3rem;
+    margin: 0 auto;
+    padding:1rem;
+}
+
+.eco-badge {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    color: black;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: #e0e0e0;
+    margin: 0.3rem;
+    max-width: 300px;
+}
+
+.eco-badge .eco-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--badge-color);
+    z-index: 1;
+    transition: width 0.3s ease-in-out;
+    border-radius: 20px;
+}
+
+.eco-badge .eco-text {
+    position: relative;
+    z-index: 2;
 }
