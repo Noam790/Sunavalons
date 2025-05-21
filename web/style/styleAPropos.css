@@ -1,0 +1,50 @@
+.member-section {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.member-section h2 {
+    color: var(--primary-dark);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.projet-description p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.member-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.member {
+    background: rgba(46, 204, 113, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease;
+    text-align: center;
+}
+
+.member:hover {
+    transform: translateY(-2px);
+    background: rgba(46, 204, 113, 0.15);
+}
+
+.member strong {
+    color: var(--primary-dark);
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 1000px) {
+    .responsive-br{
+        display: none;
+    }
+}
