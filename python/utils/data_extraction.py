@@ -72,7 +72,7 @@ def get_min_temperature(lat, lon):
 
 
 def get_solar_radiation(lat, lon):
-    """Rayonnement solaire direct moyen en juin via Open-Meteo"""
+    """Rayonnement solaire direct moyen l'an passé via Open-Meteo"""
     year = datetime.now().year - 1
     url = (f"https://archive-api.open-meteo.com/v1/archive?"
            f"latitude={lat}&longitude={lon}"
