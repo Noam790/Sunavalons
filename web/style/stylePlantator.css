@@ -27,10 +27,11 @@ section.input-box-plantator input{
   width: 100%;
   margin: 0.5rem 0;
   font-size: 1rem;
+  padding: 0.2rem;
 }
 section.input-box-plantator label{
   margin-bottom: 0.5rem;
-  color:#e3eaa7;
+  color:var(--light-color);
 }
 
 section.validation-box-plantator{
@@ -53,7 +54,7 @@ input.validation-button-plantator{
 */
 .card-table-plantator{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+    grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
     gap: 2rem;
     margin: 2rem auto;
 }
@@ -67,6 +68,11 @@ input.validation-button-plantator{
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     box-shadow: var(--card-shadow);
+    justify-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .card-plantator:hover{
@@ -82,8 +88,8 @@ input.validation-button-plantator{
 }
 
 .card-plantator h3{
-    font-size: 1.5rem;
-    text-align: justify;
+    font-size: 1.2rem;
+    margin: 0 auto;
     padding:1rem;
 }
 
@@ -92,23 +98,34 @@ input.validation-button-plantator{
     display: flex ;
     justify-content: space-between
 }
+.card-table-plantator a{
+    text-decoration: none;
+}
 
 /*
     -- Plantator eco tips
 */
 .eco-tips {
-    background: white;
+    background: var(--primary-color);
     border-radius: 12px;
     padding: 2rem;
-    margin: 3rem auto;
     box-shadow: var(--card-shadow);
     max-width: 800px;
+    margin: 1rem auto;
+    color: var(--light-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .eco-tips h3 {
-    color: var(--primary-dark);
+    color: var(--light-color);
     margin-bottom: 1rem;
     text-align: center;
+}
+
+.eco-tips p{
+    text-align: left;
 }
 
 .tips-container {
@@ -119,14 +136,47 @@ input.validation-button-plantator{
 }
 
 .tip-card {
-    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+    background: var(--primary-dark);
     padding: 1.2rem;
     border-radius: 8px;
-    border-left: 4px solid var(--primary-color);
+    border-left: 4px solid var(--light-color);
 }
 
 .tip-title {
     font-weight: 500;
-    color: var(--primary-dark);
+    color: var(--light-color);
     margin-bottom: 0.5rem;
+}
+
+/*
+    -- Eco badge --
+*/
+.eco-badge {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    color: black;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: #e0e0e0;
+    margin: 0.3rem;
+    max-width: 300px;
+}
+
+.eco-badge .eco-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--badge-color);
+    z-index: 1;
+    transition: width 0.3s ease-in-out;
+    border-radius: 20px;
+}
+
+.eco-badge .eco-text {
+    position: relative;
+    z-index: 2;
 }

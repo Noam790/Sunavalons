@@ -56,8 +56,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <?php elseif (is_array($trees)): ?>
             <h2>Arbres recommandés pour <?= htmlspecialchars($_POST["ville"]) ?></h2>
             <div class="card-table-plantator">
-                <?php foreach ($trees as $tree_data): ?>
-                    <?= render_tree_card($tree_data, $image_path); ?>
+                <?php foreach ($trees["trees"] as $tree_data): ?>
+                    <?php
+                    $actual_tree = $trees["dict"][$tree_data[0]];
+                    $tree_features = json_encode([
+                        'nom' => $tree_data[0],
+                        'eau' => $actual_tree[0],
+                        'sol' => $actual_tree[1],
+                        'climat' => $actual_tree[2],
+                        'exposition' => $actual_tree[3]
+                    ]);?>
+                    <a href="info.php?tree=<?= urlencode($tree_features) ?>">
+                        <?= render_tree_card($tree_data, $image_path); ?>
+                    </a>
                 <?php endforeach; ?>
             </div>
             <?php include 'components/eco_tips.php'; ?>

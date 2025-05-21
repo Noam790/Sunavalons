@@ -1,0 +1,60 @@
+.tree-center {
+    display: grid;
+    grid-template-columns: 280px;
+    gap: 2rem;
+    margin: 2rem auto;
+    justify-content: center;
+}
+
+.tree-card {
+    background: var(--primary-color);
+    color: var(--light-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    box-shadow: var(--card-shadow);
+    justify-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tree-card:hover {
+    transform: var(--hover-transform);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.tree-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.tree-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+}
+
+.tree-content--no-padding {
+    padding: 0;
+}
+
+.tree-content p {
+    margin-top: 1rem;
+    padding: 0 1rem 1rem 1rem;
+}
+
+.tree-content a{
+    text-decoration: none;
+    margin: 0;
+}
+
+.info-card:hover{
+    transform: var(--hover-transform);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
