@@ -20,6 +20,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-height: 350px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .tree-card:hover {
@@ -38,6 +41,8 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 1rem;
+    height: calc(100% - 200px);
+    justify-content: space-between;
 }
 
 .main-title{
@@ -76,5 +81,9 @@
 @media screen and (min-width: 800px){
     .info-cards-table{
         grid-template-columns:repeat(2,minmax(250px,1fr));
+    }
+
+    .tree-card {
+        max-width: 100%;
     }
 }

@@ -11,7 +11,8 @@ form.selection-plantator{
   }
 
 section.input-boxes-plantator{
-  display: grid;
+  display: flex;
+  flex-direction: column;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
 
@@ -87,17 +88,17 @@ input.validation-button-plantator{
     width: 100%;
     height: 200px;
     object-fit: cover;
-
 }
 
 .card-plantator .tree-content{
-    height: auto;
+    min-height: 100px;
 }
 
 .card-plantator h3{
     font-size: 1.3rem;
     margin: 0 auto;
-    padding:1rem;
+    padding:0.5rem;
+    height:20px;
 }
 
 /*
@@ -106,19 +107,18 @@ input.validation-button-plantator{
 .eco-tips {
     background: var(--primary-color);
     border-radius: 12px;
-    padding: 1.5rem;
+    padding: 1rem;
     box-shadow: var(--card-shadow);
-    max-width: fit-content;
-    margin: 1rem auto;
+    margin: 0.8rem auto;
     color: var(--light-color);
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     align-items: center;
 }
 
 .eco-tips h3 {
     color: var(--light-color);
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     text-align: center;
 }
 
@@ -128,14 +128,15 @@ input.validation-button-plantator{
 
 .tips-container {
     display: flex;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    margin-top: 1.5rem;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1rem;
+    width: 100%;
 }
 
 .tip-card {
     background: var(--primary-dark);
-    padding: 1rem;
+    padding: 0.8rem;
     border-radius: 8px;
     border-left: 4px solid var(--light-color);
 }
@@ -143,7 +144,7 @@ input.validation-button-plantator{
 .tip-title {
     font-weight: 500;
     color: var(--light-color);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
 }
 
 /*
@@ -177,4 +178,17 @@ input.validation-button-plantator{
 .eco-badge .eco-text {
     position: relative;
     z-index: 2;
+}
+
+@media (min-width: 768px) {
+    .tips-container {
+        flex-direction: row;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    section.input-boxes-plantator {
+        flex-direction: row;
+        align-items:center;
+        justify-content: space-evenly;
+    }
 }
