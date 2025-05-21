@@ -68,38 +68,6 @@ p {
 }
 
 /*
-    -- Index --
-*/
-a.btn {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    background-color: var(--primary-color, #007BFF);
-    color: white;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    min-width: 120px;
-    min-height: 40px; 
-    line-height: 1.5; 
-    white-space: nowrap; 
-}
-
-a.btn:hover {
-    background-color: var(--primary-hover-color, #0056b3);
-}
-
-input{
-    font-size: 1rem;
-}
-
-button{
-    font-size: 1rem;
-}
-/*
     -- Fonctionnel générique
 */
 .error {

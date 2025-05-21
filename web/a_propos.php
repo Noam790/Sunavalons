@@ -8,15 +8,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/styleHeaderFooter.css">
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/styleApropos.css">
     <title>À propos - Sunavalons</title>
 </head>
 <body>
     <?php include 'components/header.php'; ?>
     <main class="container">
         <h1>À propos</h1>
-        <section>
+        <section class="apropos-section">
             <h2>Notre projet</h2>
-            <div>
+            <section class="project-description">
                 <p>
                     Le projet Sunavalons est le fruit du travail d'un groupe de six étudiants de La Rochelle Université travaillant
                     ensemble dans le cadre de leur licence en "Projets transversaux appliqués au développement
@@ -32,18 +33,18 @@
                     dont l'analyse de données, la création de site web et autre tout en essayant de suivre la méthode de scrum
                     pour organiser le travail.
                 </p>
-            </div>
+            </section>
         </section>
 
-        <section>
+        <section class="member-section">
             <h2>Membres du projet</h2>
             <ul class="member-list">
-                <li class="member"><strong>SALL</strong> Fatoumata</li>
+                <li class="member"><strong>SALL</strong><br class="responsive-br"> Fatoumata</li>
                 <li class="member"><strong>CHAMOUARD</strong> Noam</li>
-                <li class="member"><strong>DENIS</strong> Judicaël</li>
+                <li class="member"><strong>DENIS</strong><br class="responsive-br"> Judicaël</li>
                 <li class="member"><strong>DUNYACH</strong> Raphaël</li>
                 <li class="member"><strong>FOURNAT</strong> Gwendhal</li>
-                <li class="member"><strong>OLLIVIER</strong> Dimitri</li>
+                <li class="member"><strong>OLLIVIER</strong><br class="responsive-br"> Dimitri</li>
             </ul>
         </section>
     </main>
