@@ -55,7 +55,6 @@ input.validation-button-plantator{
 .card-table-plantator{
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
-    justify-items: center;
     gap: 2rem;
     margin: 2rem auto;
 }
@@ -98,6 +97,9 @@ input.validation-button-plantator{
     flex: 1 ;
     display: flex ;
     justify-content: space-between
+}
+.card-table-plantator a{
+    text-decoration: none;
 }
 
 /*

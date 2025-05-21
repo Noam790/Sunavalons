@@ -1,16 +1,31 @@
 <?php
 function call_flask_api($endpoint) {
-    $ch = curl_init($endpoint);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_FAILONERROR, false); // Important pour récupérer les erreurs 400
-    $response = curl_exec($ch);
-    curl_close($ch);
+    $context = stream_context_create([
+        'http' => [
+            'ignore_errors' => true, // Récupérer les messages même si erreur.
+        ]
+    ]);
+
+    $response = file_get_contents($endpoint, false, $context);
 
     if ($response === false) {
         return ['error' => "Erreur lors de la communication avec le serveur Flask."];
     }
 
+    # Récupérer le code http pour les potentielles erreurs
+
+    $http_code = 0;
+    if (isset($http_response_header) && preg_match('#HTTP/\d+\.\d+ (\d+)#', $http_response_header[0], $matches)) {
+        $http_code = (int)$matches[1];
+    }
+
     $data = json_decode($response, true);
+
+    // Erreurs http
+    if ($http_code >= 400) {
+        $message = isset($data['error']) ? $data['error'] : "Erreur HTTP $http_code";
+        return ['error' => $message];
+    }
 
     // Si Flask a renvoyé une erreur dans le JSON
     if (isset($data["error"])) {

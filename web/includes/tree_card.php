@@ -22,3 +22,4 @@ function render_tree_card(array $tree_data, string $image_path) {
     <?php
 }
 ?>
+

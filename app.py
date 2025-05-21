@@ -1,13 +1,18 @@
 from flask import Flask, jsonify, request
 
 from python.utils.data_analysis import load_trees_data, match_city_trees_to_ref
-from python.utils.data_displaying import get_results
+from python.utils.data_displaying import (clustering_trees, get_results,
+                                          statisticator_style)
 from python.utils.data_extraction import extract_data_for_city, get_coordinates
 
 app = Flask(__name__)
 
 # Charger les arbres pour optimiser les requêtes
 tree_set = load_trees_data()
+tree_dict = tree_set.set_index('genre_francais')[['eau', 'sol', 'climat', 'exposition']].apply(list, axis=1).to_dict()
+
+fig = clustering_trees(tree_set)
+statisticator_style(fig)
 
 @app.route("/api")
 def api_get_trees():
@@ -19,7 +24,7 @@ def api_get_trees():
     if isinstance(trees, str):
         return jsonify({"error": trees}), 400
 
-    return jsonify(trees)
+    return jsonify({"trees":trees, "dict":tree_dict})
 
 @app.route("/api/city_trees")
 def api_city_trees():
