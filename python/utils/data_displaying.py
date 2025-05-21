@@ -116,6 +116,7 @@ def statisticator_style(fig): # ajouter les composants et le style
         <meta charset="UTF-8">
         <title>Statistiques des arbres</title>
         <link rel="stylesheet" href="style/style.css">
+        <link rel="stylesheet" href="style/styleHeaderFooter.css">
     </head>
     <body>
         <?php include 'components/header.php'; ?>
