@@ -3,8 +3,8 @@ import plotly.express as px
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.decomposition import PCA
 
-from python.utils import (extract_data_for_city, find_closest_trees,
-                          get_coordinates)
+from .data_analysis import find_closest_trees
+from .data_extraction import extract_data_for_city, get_coordinates
 
 
 def get_results(city, nb_trees, trees_data):
@@ -28,41 +28,38 @@ def clustering_trees(df : pd.DataFrame): # Page statisticator
     X_pca = pca.fit_transform(X)
 
     agglo = AgglomerativeClustering(
-        n_clusters=5,
-        linkage='single',
+        n_clusters=3,
+        linkage='complete',
         metric='euclidean'
     )
     clusters = agglo.fit_predict(X_pca)
 
+    cluster_names = {
+        0: "Gauche : chaleur & lumière",
+        1: "Droite : froid & humidité",
+        2: "Milieu : espèce polyvalente"
+    }
+
     # Préparation du DataFrame
     df_pca = pd.DataFrame(X_pca, columns=['Dim1', 'Dim2'])
-    df_pca['nom'] = df['genre_francais']
-    df_pca['cluster'] = clusters
+    df_pca['nom'] = df['genre_francais'].str.replace('_', ' ').str.title() # Espaces plus propres
+    df_pca['groupe'] = [cluster_names[c] for c in clusters]
 
     # Groupement pour l'affichage
-    grouped = df_pca.groupby(['Dim1', 'Dim2', 'cluster'])['nom'].apply(list).reset_index()
+    grouped = df_pca.groupby(['Dim1', 'Dim2', 'groupe'])['nom'].apply(list).reset_index()
     grouped['text'] = grouped['nom'].apply(lambda lst: '<br>'.join(lst))
+    grouped.sort_values('groupe')
 
     colors = ['#E74C3C', '#27AE60', '#2980B9']
-
-
-
-    leg = """<b>📌 Préférences écologiques des arbres</b><br>
-🔹 <b>En haut à droite</b> : espèce aimant la chaleur et la lumière<br>
-🔹 <b>En bas à droite</b> : espèce aimant la chaleur, la lumière et ayant besoin de plus d'eau<br>
-🔹 <b>En haut à gauche</b> : espèce peu exigeante, pousse sur sols neutres, résistante au froid<br>
-🔹 <b>En bas à gauche</b> : espèce de milieux humides et riches, résistante au froid<br>
-🔹 <b>Centre</b> : espèce polyvalente, adaptée à plusieurs conditions"""
-
 
     fig = px.scatter(
         grouped,
         x='Dim1',
         y='Dim2',
         hover_name='text',
-        color='cluster',
-        color_continuous_scale=colors,
-        labels={'cluster': 'Groupe'},
+        color='groupe',
+        category_orders={'groupe': ['0', '1', '2']},
+        color_discrete_sequence=colors
     )
 
     fig.update_traces(marker=dict(size=6, opacity=1), textposition='top center') # formattage du plot
@@ -82,28 +79,21 @@ def clustering_trees(df : pd.DataFrame): # Page statisticator
             pad=dict(t=10)
         ),
 
+        legend=dict(
+            yanchor="top",
+            y=0.99,
+            xanchor="left",
+            x=1.02,
+            bgcolor='rgba(255, 255, 255, 0.8)',
+            bordercolor='black',
+            borderwidth=1
+        ),
         margin=dict(l=40, r=200, t=60, b=40),
         coloraxis_showscale=False,
         plot_bgcolor='rgba(200, 200, 200, 1)',
         font=dict(
                 size=20
             ),
-        annotations=[
-            dict(
-                x=1,
-                y=0.99,
-                xref='paper',
-                yref='paper',
-                text=leg,
-                showarrow=False,
-                align='left',
-                bordercolor='black',
-                borderwidth=1,
-                borderpad=10,
-                bgcolor='white',
-                font=dict(size=12),
-            )
-        ]
     )
 
     return fig
@@ -117,6 +107,9 @@ def statisticator_style(fig): # ajouter les composants et le style
         <title>Statistiques des arbres</title>
         <link rel="stylesheet" href="style/style.css">
         <link rel="stylesheet" href="style/styleHeaderFooter.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     </head>
     <body>
         <?php include 'components/header.php'; ?>

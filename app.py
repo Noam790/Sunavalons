@@ -1,9 +1,8 @@
 from flask import Flask, jsonify, request
 
-from python.utils.data_analysis import load_trees_data, match_city_trees_to_ref
-from python.utils.data_displaying import (clustering_trees, get_results,
-                                          statisticator_style)
-from python.utils.data_extraction import extract_data_for_city, get_coordinates
+from python import (clustering_trees, extract_data_for_city, get_coordinates,
+                    get_results, load_trees_data, match_city_trees_to_ref,
+                    statisticator_style)
 
 app = Flask(__name__)
 
@@ -32,8 +31,8 @@ def api_city_trees():
     if not city:
         return jsonify({"error": "Paramètres manquants"}), 400
 
-    # 1. Récupérer le climat de la ville
-    lat, lon = get_coordinates(city)  # Ajoute cette ligne
+    # Récupérer le climat de la ville
+    lat, lon = get_coordinates(city)
     if lat is None or lon is None:
         return jsonify({"error": "Ville introuvable"}), 400
 
@@ -48,7 +47,6 @@ def api_city_trees():
 
     # Trouver les arbres de base a partir de leurs sous domaines
     city_trees['genre_francais'] = match_city_trees_to_ref(city_trees['genre_francais'], tree_set["genre_francais"])
-    print(city_trees['genre_francais'].unique())
 
     # Filtrer les arbres communs à la ville et notre reference
     filtered_trees = tree_set[tree_set["genre_francais"].isin(city_trees["genre_francais"])]

@@ -12,6 +12,7 @@ COMMON_HEADERS = {
 
 
 def get_coordinates(ville):
+    """Obtenir les coordonnées (lat, long) de la ville en paramètre."""
     url = (f"https://nominatim.openstreetmap.org/search?"
            f"q={ville}&format=json&limit=1&email=email@example.com")
 
@@ -91,7 +92,7 @@ def get_solar_radiation(lat, lon):
 
 
 def extract_data_for_city(ville):
-    """fonction main regroupant les indicateurs"""
+    """Fonction main regroupant les indicateurs."""
     lat, lon = get_coordinates(ville)
 
     if lat is None or lon is None:
@@ -109,7 +110,7 @@ def extract_data_for_city(ville):
         tmin = thread_tmin.result()
         radiation = thread_radiation.result()
 
-    # Eau
+    # Normalisation Eau
     if precip < 300:
         indicators["eau"] = 1
     elif precip < 500:
@@ -121,7 +122,7 @@ def extract_data_for_city(ville):
     else:
         indicators["eau"] = 5
 
-    # Sol
+    # Normalisation Sol
     if ph is None:
         indicators["sol"] = 3  # Valeur par défaut
     elif ph < 4.0 or ph > 9.5:
@@ -135,7 +136,7 @@ def extract_data_for_city(ville):
     elif 7.0 <= ph <= 8.0:
         indicators["sol"] = 5
 
-    # Climat
+    # Normalisation Climat
     if tmin < -30:
         indicators["climat"] = 1
     elif tmin < -20:
@@ -147,7 +148,7 @@ def extract_data_for_city(ville):
     else:
         indicators["climat"] = 5
 
-    # Exposition
+    # Normalisation Exposition
     if radiation < 2000:
         indicators["exposition"] = 1
     elif radiation < 3000:
