@@ -34,11 +34,11 @@
             </section>
             <section class="ligne">
                 <p>Comparator permet de voir les meilleurs et pires arbres plantés dans votre commune.</p>
-                <a href="" class="btn">Comparator</a>
+                <a href="comparator.php" class="btn">Comparator</a>
             </section>
             <section class="ligne">
                 <p>Statisticator permet d'afficher les arbres et leurs caractéristiques sous forme de graphiques.</p>
-                <a href="" class="btn">Statisticator</a>
+                <a href="statisticator.php" class="btn">Statisticator</a>
             </section>
         </section>
     </main>
