@@ -14,6 +14,7 @@ $success = $result['success'];
     <meta charset="UTF-8">
     <title>Mise à jour - <?= htmlspecialchars($ville) ?></title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/styleHeaderFooter.css">
 </head>
 <body>
     <?php include 'components/header.php'; ?>

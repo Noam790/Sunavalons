@@ -6,6 +6,8 @@
 form.search-form{
     margin: auto;
     padding:1rem;
+    min-width: 400px;
+    min-height: 200px;
     border-radius: 1rem;
     margin:2rem 0;
     background-color: var(--primary-color);
@@ -25,7 +27,7 @@ form.search-form{
 }
 
 .form-row label{
-    margin-bottom: 0.5rem;  
+    margin-bottom: 0.5rem;
     color:var(--light-color);
 }
 
@@ -46,7 +48,7 @@ form.search-form{
 .form-buttons a{
     text-decoration: none;
     color: black;
-    
+
 }
 
 .redirect-plantator{
@@ -56,7 +58,7 @@ form.search-form{
 
 .redirect-plantator button{
     margin: 1.5rem auto;
-    
+
     padding: 0.5rem;
     font-size: 1rem;
     border-radius: 8px;
@@ -101,7 +103,7 @@ form.search-form{
     width: 100%;
     height: 300px;
     object-fit: cover;
-    
+
 }
 
 .card-plantator .tree-content{

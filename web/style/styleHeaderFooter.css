@@ -26,7 +26,7 @@ header::before {
     align-items: center;
     position: relative;
     padding: 0 1rem;
-    z-index: 1; 
+    z-index: 1;
 }
 
 .logoTitre {
@@ -36,7 +36,7 @@ header::before {
 }
 
 .logoHeader {
-    width: 80px; 
+    width: 60px;
     height: auto;
 }
 
@@ -48,8 +48,8 @@ header::before {
 }
 
 .titre a {
-    text-decoration: none; 
-    color: white; 
+    text-decoration: none;
+    color: white;
     font-size: inherit;
 }
 
@@ -61,7 +61,7 @@ header::before {
     gap: 0rem;
     margin: 0;
     padding: 0;
-    z-index: 1; 
+    z-index: 1;
 }
 
 .nav-links li a {
@@ -84,26 +84,26 @@ footer {
 
 .footer-container {
     display: flex;
-    flex-direction: row; 
-    justify-content: space-between; 
+    flex-direction: row;
+    justify-content: space-between;
     padding: 0 0.5rem;
-    align-items: center; 
-    gap: 0.5rem;  
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .footer-text {
     margin: 0;
-    max-width: 150px; 
-    font-size: 0.9rem; 
+    max-width: 150px;
+    font-size: 0.9rem;
     text-align: center;
 }
 
 .footer-links {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     align-items: center;
-    justify-content: center; 
-    gap: 2rem; 
+    justify-content: center;
+    gap: 2rem;
 }
 
 .footer-link {
@@ -118,35 +118,35 @@ footer {
 }
 
 .footer-image {
-    width: 80px; 
+    width: 80px;
     height: auto;
 }
 
 @media (min-width: 768px) {
     header{
-        padding: 1rem; 
+        padding: 0.8rem;
     }
 
     .logoHeader {
-        width: 120px; 
+        width: 80px;
     }
 
     .logoTitre {
-        gap: 1rem; 
+        gap: 1rem;
     }
 
     .nav-links {
-        flex-direction: row; 
-        align-items: center; 
-        gap: 1.5rem; 
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
     }
 
     .nav-links li a {
-        font-size: 1rem; 
+        font-size: 1rem;
     }
 
     footer{
-        padding: 1rem 0;
+        padding: 0.5rem 0;
     }
 
     .footer-container {
@@ -154,15 +154,15 @@ footer {
     }
 
     .footer-text {
-        max-width: none; 
-        font-size: 1rem; 
+        max-width: none;
+        font-size: 1rem;
     }
 
     .footer-link {
-        font-size: 1rem; 
+        font-size: 1rem;
     }
 
     .footer-image {
-        width: 100px; 
+        width: 100px;
     }
 }

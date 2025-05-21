@@ -47,7 +47,7 @@
 }
 .info-cards-table{
     display: grid;
-    gap:1rem;
+    gap:0.8rem;
     grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
     justify-content: stretch;
 }
@@ -55,7 +55,7 @@
 .info-card{
     background-color: var(--primary-color);
     color:var(--light-color);
-    padding: 1rem;
+    padding: 0.8rem;
     border-radius: 8px;
     text-align: center;
 }
@@ -70,7 +70,7 @@
 .info-note p{
     text-align: center;
     color: rgb(230, 176, 67);
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 @media screen and (min-width: 800px){
