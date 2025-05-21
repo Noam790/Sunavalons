@@ -40,21 +40,37 @@
     padding: 1rem;
 }
 
-.tree-content--no-padding {
-    padding: 0;
+
+.info-cards-table{
+    display: grid;
+    gap:1rem;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    justify-content: stretch;
 }
 
-.tree-content p {
-    margin-top: 1rem;
-    padding: 0 1rem 1rem 1rem;
-}
-
-.tree-content a{
-    text-decoration: none;
-    margin: 0;
+.info-card{
+    background-color: var(--primary-color);
+    color:var(--light-color);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
 }
 
 .info-card:hover{
+    box-shadow: var(--card-shadow);
     transform: var(--hover-transform);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+
+
+}
+
+.info-note p{
+    text-align: center;
+    color: rgb(230, 176, 67);
+    font-size: 3rem;
+}
+
+@media screen and (min-width: 800px){
+    .info-cards-table{
+        grid-template-columns:repeat(2,minmax(250px,1fr));
+    }
 }

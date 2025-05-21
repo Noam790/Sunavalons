@@ -56,7 +56,7 @@ input.validation-button-plantator{
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
     gap: 2rem;
-    margin: 2rem auto;
+    margin: 2rem 0;
 }
 
 .card-plantator{
@@ -68,11 +68,14 @@ input.validation-button-plantator{
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     box-shadow: var(--card-shadow);
-    justify-self: stretch;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+}
+
+.card-table-plantator a{
+    text-decoration: none;
+    justify-self: stretch;
 }
 
 .card-plantator:hover{
@@ -87,19 +90,14 @@ input.validation-button-plantator{
     
 }
 
-.card-plantator h3{
-    font-size: 1.2rem;
-    margin: 0 auto;
-    padding:1rem;
+.card-plantator .tree-content{
+    height: auto;
 }
 
-.card-plantator-title{
-    flex: 1 ;
-    display: flex ;
-    justify-content: space-between
-}
-.card-table-plantator a{
-    text-decoration: none;
+.card-plantator h3{
+    font-size: 1.3rem;
+    margin: 0 auto;
+    padding:1rem;
 }
 
 /*
