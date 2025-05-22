@@ -40,10 +40,10 @@
             <h2>Membres du projet</h2>
             <ul class="member-list">
                 <li class="member"><strong>SALL</strong><br class="responsive-br"> Fatoumata</li>
-                <li class="member"><strong>CHAMOUARD</strong> Noam</li>
+                <li class="member"><strong>CHAMOUARD</strong><br class="responsive-br"> Noam</li>
                 <li class="member"><strong>DENIS</strong><br class="responsive-br"> Judicaël</li>
-                <li class="member"><strong>DUNYACH</strong> Raphaël</li>
-                <li class="member"><strong>FOURNAT</strong> Gwendhal</li>
+                <li class="member"><strong>DUNYACH</strong><br class="responsive-br"> Raphaël</li>
+                <li class="member"><strong>FOURNAT</strong><br class="responsive-br">Gwendhal</li>
                 <li class="member"><strong>OLLIVIER</strong><br class="responsive-br"> Dimitri</li>
             </ul>
         </section>
