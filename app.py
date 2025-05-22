@@ -74,11 +74,4 @@ def api_city_trees():
     else:
         return jsonify({"best_trees": best_trees})
 
-@app.after_request
-def skip_ngrok_warning(response):
-    # Ajoute l'en-tête uniquement si on est derrière Ngrok
-    if "ngrok" in request.host:
-        response.headers["ngrok-skip-browser-warning"] = "true"
-    return response
-
 app.run()
