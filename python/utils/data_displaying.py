@@ -35,9 +35,9 @@ def clustering_trees(df : pd.DataFrame): # Page statisticator
     clusters = agglo.fit_predict(X_pca)
 
     cluster_names = {
-        0: "Gauche : chaleur & lumière",
-        1: "Droite : froid & humidité",
-        2: "Milieu : espèce polyvalente"
+        0: "chaleur & lumière",
+        1: "froid & humidité",
+        2: "espèce polyvalente"
     }
 
     # Préparation du DataFrame

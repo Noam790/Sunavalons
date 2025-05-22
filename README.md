@@ -66,13 +66,16 @@
       ```
 
 
-  - ## Démarrage
+  - ## Démarrage Local
     - Pour lancer le projet, utilisez la commande
       ```bash
       ./start_project.sh
       ```
 
     - Allez ensuite à cette url : https://localhost:8080/
+
+  - ## Lancement Rapide
+    - Retrouvez notre site à cette adresse sinon :  <a href="https://strong-winning-mastodon.ngrok-free.app/">sunavalons</a>
 
 
 # Feuille de Route
