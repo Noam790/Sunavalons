@@ -6,7 +6,6 @@
 # 📗 Table des matières
 - [📗 Table des matières](#-table-des-matières)
 - [À propos](#à-propos)
-- [Exemple](#exemple)
     - [Dépendances](#dépendances)
     - [API/Données](#apidonnées)
 - [Pour commencer](#pour-commencer)
@@ -17,10 +16,11 @@
 - Ce projet va pouvoir permettre d'analyser la cohérence entre les arbres plantés et les conditions environnementales locales. Pour pouvoir suggérer des espèces plus adaptées aux différents milieux urbains français.
 
 
-# Exemple
-  <div align="center">
-        <img src="web/assets/example.mp4"></img>
-  </div>
+<div align="center">
+    <video width="600" controls>
+        <source src="web/assets/demo.mp4" type="video/mp4">
+    </video>
+</div>
 
   ### Dépendances
   - Pour réaliser ce projet, nous avons principalement utilisé les bibliothèques suivantes :
