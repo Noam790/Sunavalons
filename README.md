@@ -17,9 +17,7 @@
 
 
 <div align="center">
-    <video width="600" controls>
-        <source src="web/assets/demo.mp4" type="video/mp4">
-    </video>
+    <img src="web/assets/demo.mp4"></img>
 </div>
 
   ### Dépendances
