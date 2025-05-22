@@ -1,14 +1,12 @@
-# sunavalons
-
 <div align="center">
-    <img src="https://gitlab.univ-lr.fr/uploads/-/system/project/avatar/10566/tree.png" width="134" height="134">
+    <img src="web/assets/logo.png" width="134" height="134">
     <h1>Sunavalons</h1>
 </div>
 
 # 📗 Table des matières
-- [sunavalons](#sunavalons)
 - [📗 Table des matières](#-table-des-matières)
 - [À propos](#à-propos)
+- [Exemple](#exemple)
     - [Dépendances](#dépendances)
     - [API/Données](#apidonnées)
 - [Pour commencer](#pour-commencer)
@@ -18,30 +16,70 @@
 # À propos
 - Ce projet va pouvoir permettre d'analyser la cohérence entre les arbres plantés et les conditions environnementales locales. Pour pouvoir suggérer des espèces plus adaptées aux différents milieux urbains français.
 
+
+# Exemple
+  <div align="center">
+        <img src="web/assets/example.mp4"></img>
+  </div>
+
   ### Dépendances
+  - Pour réaliser ce projet, nous avons principalement utilisé les bibliothèques suivantes :
+    - <a href="https://flask.palletsprojects.com/">🌐 Flask</a>
+    - <a href="https://numpy.org/">🔢 NumPy</a>
+    - <a href="https://pandas.pydata.org/">📊 pandas</a>
+    - <a href="https://scikit-learn.org/">🧠 scikit-learn</a>
+    - <a href="https://plotly.com/python/">📈 Plotly</a>
+    - <a href="https://scipy.org/">📐 SciPy</a>
 
 
   ### API/Données
+  - Le datasets avec les noms des arbres a été pris sur <a href="https://www.data.gouv.fr/fr/)">data.gouv</a>
+  - Les caractéristiques de ceux-ci ont été trouvées sur ce site [climescence](https://climessences.fr/fiches-especes/fiches-especes) puis normalisées par IA et vérifiées plusieurs fois entre différents modèles.
+
+  - Nous avons utilisé plusieurs api pour chercher les caractéristiques des villes :
+
+    - openstreetmap pour récupérer les coordonnées de la ville donnée par l’utilisateur.
+
+    - open-meteo pour obtenir les précipitations, le rayonnement solaire moyen et  la température minimale dans un lieu donné.
+
+    - isric pour obtenir le ph du sol à un endroit donné.
+
 
 # Pour commencer
   - ## Compatibilité
+    - Avant de commencer vérifiez que votre python soit compatible avec le projet :
+      | Version  | Compatibilité |
+      | --------------- | ----------- |
+      | >= 3.9 | ✅ |
+      | < 3.9, >3.8 | 🤷 |
+      | <= 3.8  | ❌ |
+
+    - Si vous lancez le projet sur votre machine, il est nécessaire de posséder un serveur Apache pour accéder à la page sur le net.
+
+    <br>
+
+    - [serveur sous windows](https://www.wampserver.com/)
+    - Téléchargement Sous linux :
+      ```bash
+      sudo apt update
+      sudo apt install apache2 php libapache2-mod-php php-cli php-mbstring php-xml php-curl
+      ```
 
 
-  - ## Installation
-    - Pour lancer le projet, utilisez la commande ./start_project.sh
+  - ## Démarrage
+    - Pour lancer le projet, utilisez la commande
+      ```bash
+      ./start_project.sh
+      ```
+
     - Allez ensuite à cette url : https://localhost:8080/
-
-  - ## Installation rapide
-
-
-  - ## Configuration
 
 
 # Feuille de Route
-- [ ] Récupérer tous les jeux de données nécessaires
-- [ ] Extraire ces données pour les ajouter à la base
-- [ ] Développer les algorithmes pour faire les analyses sur les besoins des arbres
-- [ ] faire le site web pour exposer nos résultats
+- [x] Récupérer tous les jeux de données nécessaires
+- [x] Extraire ces données pour les ajouter au serveur
+- [x] Développer les algorithmes pour faire les analyses sur les besoins des arbres
+- [x] faire le site web pour exposer nos résultats
 
 # Auteurs
 
