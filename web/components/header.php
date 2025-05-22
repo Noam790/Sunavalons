@@ -1,3 +1,9 @@
+<?php
+if (strpos($_SERVER['HTTP_HOST'], 'ngrok') !== false) {
+    header("ngrok-skip-browser-warning: true");
+}
+?>
+
 <header>
     <div class="header-container">
         <section class="logoTitre">
