@@ -36,7 +36,7 @@ header::before {
 }
 
 .logoHeader {
-    width: 60px;
+    width: 80px;
     height: auto;
 }
 
@@ -79,14 +79,14 @@ footer {
     background: var(--dark-color);
     color: var(--light-color);
     text-align: center;
-    padding: 0.5rem 0;
+    padding: 0.2rem 0;
 }
 
 .footer-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0 0.5rem;
+    padding: 0 0.4rem;
     align-items: center;
     gap: 0.5rem;
 }
@@ -118,7 +118,7 @@ footer {
 }
 
 .footer-image {
-    width: 80px;
+    width: 60px;
     height: auto;
 }
 
@@ -128,7 +128,11 @@ footer {
     }
 
     .logoHeader {
-        width: 80px;
+        width: 100px;
+    }
+
+    .titre {
+        font-size: 2rem;
     }
 
     .logoTitre {
@@ -150,10 +154,11 @@ footer {
     }
 
     .footer-container {
-        padding: 0 2rem;
+        padding: 0 0.6rem;
     }
 
     .footer-text {
+        margin-top: 10px;
         max-width: none;
         font-size: 1rem;
     }
@@ -163,6 +168,6 @@ footer {
     }
 
     .footer-image {
-        width: 100px;
+        width: 80px;
     }
 }
