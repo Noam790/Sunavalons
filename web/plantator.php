@@ -41,14 +41,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <main class="container">
         <h1>Plantator</h1>
         <p>
-        Plantator est l'outil principal du projet Sunavalons et constituait le 
-        MVP du projet. Cet outil vous permet de trouver quel arbre serait le 
+        Plantator est l'outil principal du projet Sunavalons et constituait le
+        MVP du projet. Cet outil vous permet de trouver quel arbre serait le
         mieux pour votre ville. <br>
-        Pour ce faire, remplissez simplement le petit 
-        formulaire avec le nom de votre ville ainsi qu'avec le nombre de variétés 
+        Pour ce faire, remplissez simplement le petit
+        formulaire avec le nom de votre ville ainsi qu'avec le nombre de variétés
         d'arbres que vous souhaiteriez planter.
         </p>
-        
+
         <?php include 'components/forms/plantator_form.php'; ?>
 
         <?php if ($error): ?>

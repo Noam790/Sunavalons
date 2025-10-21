@@ -12,14 +12,13 @@ function render_tree_card(array $tree_data, string $image_path) {
             <span class="eco-fill" style="width: <?= $fill_percent ?>%;"></span>
             <span class="eco-text">Score éco-compatible</span>
         </span>
-        
+
         <img src="<?= $img ?>" class="card-picture-plantator">
         <div class="tree-content">
             <h3 class="card-plantator-title"><?= $tree_name ?></h3>
         </div>
     </div>
-    
+
     <?php
 }
 ?>
-
